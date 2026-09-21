@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Где дешевле: сравнение цен в гипермаркетах Казахстана</title>
+<style>
+:root{
+  --bg:#F3F6FA; --surface:#FFFFFF; --surface-2:#F7F9FC;
+  --ink:#27323E; --muted:#6B7684; --line:#E2E8EF;
+  --mint:#DAF1E7; --mint-ink:#2A7760; --mint-strong:#3C9A7E;
+  --lilac:#E9E4FB; --lilac-ink:#5B4CA8;
+  --peach:#FFE8DB; --peach-ink:#B0532A;
+  --sky:#DDEEFB; --sky-ink:#2D6694;
+  --butter:#FFF5CF;
+  --shadow:0 1px 2px rgba(40,60,90,.06),0 6px 18px rgba(40,60,90,.05);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1E242B; --surface:#262D35; --surface-2:#2C343D;
+    --ink:#E6ECF2; --muted:#A3AEBB; --line:#38424D;
+    --mint:#2A4A40; --mint-ink:#9FE0C8; --mint-strong:#5DB596;
+    --lilac:#3A3558; --lilac-ink:#C9C0F5;
+    --peach:#4E3A30; --peach-ink:#FFC3A2;
+    --sky:#2C4052; --sky-ink:#A9D2F2; --butter:#48432C;
+    --shadow:none; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1E242B; --surface:#262D35; --surface-2:#2C343D;
+  --ink:#E6ECF2; --muted:#A3AEBB; --line:#38424D;
+  --mint:#2A4A40; --mint-ink:#9FE0C8; --mint-strong:#5DB596;
+  --lilac:#3A3558; --lilac-ink:#C9C0F5;
+  --peach:#4E3A30; --peach-ink:#FFC3A2;
+  --sky:#2C4052; --sky-ink:#A9D2F2; --butter:#48432C;
+  --shadow:none; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:15px; line-height:1.45;
+  padding-bottom:calc(84px + env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+button:disabled{cursor:not-allowed}
+:focus-visible{outline:2.5px solid var(--mint-strong);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+.dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;display:inline-block}
+
+/* Header */
+header.top{padding:16px 0 4px}
+.brandbar{display:flex;align-items:center;gap:8px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.01em;margin-right:auto;min-width:0}
+.logo-mark{width:34px;height:34px;border-radius:11px;background:var(--mint);display:grid;place-items:center;font-size:18px;flex:0 0 auto}
+.langs{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.langs button{border:none;background:none;border-radius:999px;padding:5px 9px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.langs button[aria-pressed="true"]{background:var(--mint);color:var(--mint-ink)}
+.theme-btn{border:1px solid var(--line);background:var(--surface);border-radius:999px;width:36px;height:36px;flex:0 0 auto}
+h1.lead{font-size:clamp(26px,6.5vw,40px);line-height:1.08;letter-spacing:-.025em;font-weight:800;margin:18px 0 6px;max-width:17ch}
+.sub{color:var(--muted);margin:0 0 16px;max-width:54ch}
+.search{position:relative;display:block}
+.search input{
+  width:100%;border:1.5px solid var(--line);background:var(--surface);
+  border-radius:16px;padding:14px 16px 14px 46px;font-size:16px;box-shadow:var(--shadow)
+}
+.search input:focus{outline:none;border-color:var(--mint-strong)}
+.search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.note{margin:12px 0 0;font-size:13px;color:var(--muted);background:var(--butter);border-radius:12px;padding:9px 12px}
+
+/* Chips */
+.cats{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 4px;margin:0 -16px;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;white-space:nowrap;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--mint);border-color:transparent;color:var(--mint-ink);font-weight:600}
+.chip .ic{margin-right:6px}
+.brands{padding-top:6px}
+.brands .chip{padding:6px 12px;font-size:13px}
+.brands .chip[aria-pressed="true"]{background:var(--lilac);color:var(--lilac-ink)}
+
+/* Toolbar */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 14px}
+.toolbar select,.tbtn{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 12px;font-size:14px;color:var(--ink)}
+.tbtn[aria-pressed="true"]{background:var(--peach);color:var(--peach-ink);border-color:transparent;font-weight:600}
+.seg{display:flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.seg button{border:none;background:none;padding:8px 11px;font-size:14px}
+.seg button[aria-pressed="true"]{background:var(--sky);color:var(--sky-ink);font-weight:600}
+.count{margin-left:auto;color:var(--muted);font-size:13px}
+details.stores{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 12px}
+details.stores summary{cursor:pointer;padding:8px 0;font-weight:600;font-size:14px;list-style:none;display:flex;justify-content:space-between}
+details.stores summary::-webkit-details-marker{display:none}
+details.stores summary::after{content:"＋";color:var(--muted)}
+details.stores[open] summary::after{content:"－"}
+.store-grid{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 12px}
+.sbtn{border:1px solid var(--line);background:var(--surface-2);border-radius:10px;padding:6px 10px;font-size:13px;display:flex;align-items:center;gap:6px}
+.sbtn[aria-pressed="true"]{background:var(--sky);border-color:transparent;color:var(--sky-ink);font-weight:600}
+
+h2.sec{font-size:22px;letter-spacing:-.015em;margin:20px 0 4px}
+.sec-sub{color:var(--muted);margin:0 0 14px;font-size:14px}
+
+/* List view */
+.group{margin:18px 0 8px;display:flex;align-items:baseline;gap:8px;font-size:17px;font-weight:700}
+.group small{color:var(--muted);font-weight:500;font-size:13px}
+.rows{display:grid;gap:6px}
+@media (min-width:900px){.rows{grid-template-columns:1fr 1fr}}
+.row{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:7px 8px 7px 7px;min-width:0}
+.row-open{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;flex:1;min-width:0;border-radius:12px}
+.row-open:focus-visible{outline:2.5px solid var(--mint-strong);outline-offset:2px}
+.pic{border-radius:16px;display:grid;place-items:center}
+.pic.sm{width:48px;height:48px;font-size:26px;border-radius:12px;flex:0 0 auto}
+.rt{min-width:0;display:flex;flex-direction:column}
+.rt b{font-weight:600;font-size:14px;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.meta{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
+.brand-tag{font-size:11.5px;font-weight:600;background:var(--lilac);color:var(--lilac-ink);border-radius:6px;padding:1px 6px}
+.qty-tag{font-size:11.5px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:0 6px}
+.sale-tag{font-size:11.5px;font-weight:700;background:var(--peach);color:var(--peach-ink);border-radius:6px;padding:1px 6px}
+.rr{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.rp{text-align:right;display:flex;flex-direction:column;line-height:1.2}
+.rp .price{font-size:16px}
+.add-sm{width:38px;height:38px;border-radius:12px;border:none;background:var(--mint);color:var(--mint-ink);font-weight:800;font-size:18px}
+.add-sm.in{background:var(--mint-strong);color:#fff;font-size:15px}
+
+/* Grid view */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:640px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}
+@media (min-width:960px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.card{position:relative;background:var(--surface);border-radius:22px;padding:12px;display:flex;flex-direction:column;box-shadow:var(--shadow);border:1px solid var(--line);min-width:0}
+.card-open{all:unset;cursor:pointer;display:flex;flex-direction:column;flex:1;min-width:0;border-radius:14px}
+.card-open:focus-visible{outline:2.5px solid var(--mint-strong);outline-offset:3px}
+.card .pic{height:84px;font-size:44px;margin-bottom:10px}
+.card h3{font-size:14px;font-weight:600;margin:0;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.6em}
+.card .meta{margin:4px 0 8px}
+.best{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.price{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.where{font-size:12px;color:var(--mint-ink);font-weight:600}
+.range{font-size:12px;color:var(--muted);margin-top:2px}
+.fav{position:absolute;top:18px;right:18px;border:none;background:var(--surface);border-radius:50%;width:32px;height:32px;display:grid;place-items:center;font-size:16px;box-shadow:var(--shadow);z-index:1}
+.fav[aria-pressed="true"]{color:#D9607A}
+.card .sale-tag{position:absolute;top:20px;left:20px;z-index:1}
+.add{margin-top:10px;border:none;border-radius:12px;padding:9px;background:var(--mint);color:var(--mint-ink);font-weight:600;font-size:14px}
+.add.in{background:var(--mint-strong);color:#fff}
+.strip{position:relative;height:14px;margin:8px 2px 0}
+.strip::before{content:"";position:absolute;left:0;right:0;top:6px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--mint-strong),var(--line) 50%,#E7A58A)}
+.strip i{position:absolute;top:3px;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--surface);transform:translateX(-50%)}
+
+.empty{text-align:center;padding:36px 16px;color:var(--muted);background:var(--surface);border-radius:22px;border:1px dashed var(--line)}
+.empty b{display:block;color:var(--ink);font-size:17px;margin-bottom:4px}
+.empty button{margin-top:12px}
+
+/* Bottom nav */
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
+nav.tabs .in{max-width:620px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.tab{border:none;background:none;padding:6px 2px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--muted);border-radius:12px;position:relative;min-width:0}
+.tab span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.tab .ti{font-size:20px;line-height:1}
+.tab[aria-current="page"]{color:var(--mint-ink);background:var(--mint);font-weight:600}
+.badge[hidden]{display:none}
+.badge{position:absolute;top:1px;left:calc(50% + 6px);background:var(--peach-ink);color:#fff;font-size:10px;font-weight:700;border-radius:999px;min-width:17px;height:17px;padding:0 4px;display:grid;place-items:center}
+
+/* Sheet */
+.scrim{position:fixed;inset:0;background:rgba(30,40,55,.35);z-index:30;display:none}
+.scrim.open{display:block}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:31;background:var(--surface);border-radius:26px 26px 0 0;max-height:90vh;overflow:auto;transform:translateY(100%);transition:transform .28s ease;padding:10px 18px calc(24px + env(safe-area-inset-bottom))}
+.sheet.open{transform:none}
+@media (min-width:720px){
+  .sheet{left:50%;right:auto;width:660px;bottom:auto;top:50%;border-radius:26px;transform:translate(-50%,-44%);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+  .sheet.open{transform:translate(-50%,-50%);opacity:1;pointer-events:auto}
+}
+@media (prefers-reduced-motion:reduce){.sheet{transition:none}}
+.grab{width:42px;height:5px;border-radius:5px;background:var(--line);margin:0 auto 12px}
+.sh-head{display:flex;gap:14px;align-items:center}
+.sh-head .pic{width:74px;height:74px;flex:0 0 auto;font-size:40px}
+.sh-head h3{margin:0;font-size:18px;line-height:1.25}
+.close{margin-left:auto;align-self:flex-start;border:none;background:var(--surface-2);border-radius:50%;width:36px;height:36px;font-size:17px;flex:0 0 auto}
+.sh-title{font-size:15px;font-weight:700;margin:20px 0 8px}
+.ladder{display:flex;flex-direction:column;gap:6px}
+.rung{display:grid;grid-template-columns:96px 1fr auto 34px;gap:8px;align-items:center;font-size:14px}
+.rung .nm{display:flex;align-items:center;gap:6px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar{height:26px;border-radius:8px;background:var(--surface-2);position:relative;overflow:hidden}
+.bar span{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:var(--sky)}
+.rung.win .bar span{background:var(--mint-strong)}
+.rung.win .pr{color:var(--mint-ink)}
+.rung .pr{font-weight:700;text-align:right;min-width:74px}
+.rung .old{display:block;font-size:11px;color:var(--muted);text-decoration:line-through;font-weight:400}
+.rung.na{opacity:.5}
+.rung-add{width:34px;height:34px;border-radius:10px;border:none;background:var(--mint);color:var(--mint-ink);font-weight:800;font-size:17px}
+.chart{width:100%;height:auto;display:block}
+.chart-cap{font-size:13px;color:var(--muted);margin-top:4px}
+.sh-actions{display:flex;gap:8px;margin-top:20px}
+.btn{flex:1;border:none;border-radius:14px;padding:13px 14px;font-weight:700;font-size:15px}
+.btn.pri{background:var(--mint-strong);color:#fff}
+.btn.sec{background:var(--surface-2);border:1px solid var(--line)}
+.btn:disabled{opacity:.5}
+.saving{margin-top:12px;background:var(--mint);color:var(--mint-ink);border-radius:12px;padding:10px 12px;font-size:14px}
+
+/* Cart & panels */
+.two{display:grid;gap:14px}
+.two>*{min-width:0}
+main{overflow-x:clip}
+@media (min-width:900px){.two{grid-template-columns:1.15fr 1fr;align-items:start}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:16px;margin-bottom:14px}
+.panel h3{margin:0 0 4px;font-size:17px}
+.panel p{margin:0 0 12px;color:var(--muted);font-size:14px}
+.sgroup-h{display:flex;align-items:center;gap:8px;font-weight:700;margin-bottom:8px}
+.sgroup-h .sum{margin-left:auto}
+.ci{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.ci .pic.sm{width:42px;height:42px;font-size:22px}
+.ci .t{flex:1;min-width:0}
+.ci .t b{display:block;font-weight:600;font-size:14px;line-height:1.25}
+.ci{align-items:flex-start}
+.ci .tl{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.ci .ctl{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:6px}
+.ci select{min-width:0;flex:1 1 auto;border:1px solid var(--line);background:var(--surface-2);border-radius:8px;padding:3px 6px;font-size:12.5px;max-width:100%}
+.qty{display:flex;align-items:center;gap:4px;flex:0 0 auto}
+.qty button{width:30px;height:30px;border-radius:9px;border:1px solid var(--line);background:var(--surface-2);font-size:16px}
+.qty span{min-width:20px;text-align:center;font-weight:700}
+.ci .lsum{white-space:nowrap;font-weight:700;font-size:14px}
+.total-rung{grid-template-columns:96px 1fr auto auto}
+.miss{display:block;font-size:11px;color:var(--peach-ink);font-weight:500}
+.take{border:1px solid var(--line);background:var(--surface-2);border-radius:9px;padding:5px 8px;font-size:12px;font-weight:600;white-space:nowrap}
+.take:disabled{opacity:.4}
+.lines{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.lines div{display:flex;justify-content:space-between;gap:10px}
+.lines .grand{font-size:20px;font-weight:800;padding-top:8px;border-top:1px solid var(--line);margin-top:4px}
+.bigsum{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.clear{border:none;background:none;color:var(--peach-ink);font-weight:600;padding:4px 0}
+.order-item{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:14px}
+.order-item small{color:var(--muted);display:block}
+.status{background:var(--mint);color:var(--mint-ink);border-radius:8px;padding:2px 8px;font-size:12px;font-weight:600;white-space:nowrap}
+
+/* Stores */
+.store-cards{display:grid;gap:10px}
+@media (min-width:640px){.store-cards{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:960px){.store-cards{grid-template-columns:repeat(3,1fr)}}
+.store-card{all:unset;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.store-card:focus-visible{outline:2.5px solid var(--mint-strong)}
+.store-card .hd{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px}
+.store-av{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#2B3440}
+.store-card .hd .cnt{margin-left:auto;font-size:13px;font-weight:600;background:var(--mint);color:var(--mint-ink);border-radius:999px;padding:3px 10px}
+.store-card .hd .cnt.zero{background:var(--surface-2);color:var(--muted)}
+.store-card small{color:var(--muted)}
+.back{border:none;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:600;margin-top:14px}
+.store-hero{display:flex;align-items:center;gap:12px;margin:14px 0 4px}
+.store-hero .store-av{width:52px;height:52px;font-size:20px;border-radius:16px}
+.store-hero h2{margin:0;font-size:24px}
+.inline-search{width:100%;border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:11px 14px;font-size:15px;margin-bottom:10px}
+
+/* Checkout */
+.co{position:fixed;inset:0;z-index:50;background:var(--bg);overflow:auto;display:none;padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+.co.open{display:block}
+.co-top{position:sticky;top:0;background:var(--bg);z-index:2;padding:12px 0 8px;border-bottom:1px solid var(--line)}
+.co-top .wrap{display:flex;align-items:center;gap:10px;max-width:720px}
+.co-top h2{margin:0;font-size:18px}
+.co .wrap.body{max-width:720px}
+.steps{display:flex;gap:6px;margin:14px 0 6px}
+.steps div{flex:1;display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--muted)}
+.steps div::before{content:"";height:5px;border-radius:5px;background:var(--line)}
+.steps div.on{color:var(--mint-ink);font-weight:600}
+.steps div.on::before{background:var(--mint-strong)}
+.co-bar{position:fixed;left:0;right:0;bottom:0;z-index:51;background:var(--surface);border-top:1px solid var(--line);padding:10px 0 calc(10px + env(safe-area-inset-bottom))}
+.co-bar .wrap{display:flex;gap:10px;align-items:center;max-width:720px}
+.co-bar .tot{margin-right:auto;line-height:1.15}
+.co-bar .tot small{color:var(--muted);display:block;font-size:12px}
+.co-bar .tot b{font-size:20px}
+.co-bar .btn{flex:0 0 auto;min-width:150px}
+.order-no{font-size:13px;color:var(--muted)}
+.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.fields .full{grid-column:1/-1}
+.fields.four{grid-template-columns:repeat(3,1fr)}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-weight:500}
+label.f input,label.f select,label.f textarea{border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:11px 12px;font-size:16px;color:var(--ink);width:100%}
+label.f input:focus,label.f select:focus,label.f textarea:focus{outline:none;border-color:var(--mint-strong)}
+label.f textarea{resize:vertical;min-height:64px}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.opt{border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:12px;text-align:left;display:flex;align-items:center;gap:10px}
+.opt[aria-pressed="true"]{border-color:var(--mint-strong);background:var(--mint)}
+.opt .oi{font-size:22px}
+.opt b{display:block;font-size:14.5px}
+.opt small{color:var(--muted);font-size:12px}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:10px}
+.days .chip{text-align:center;line-height:1.2}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px}
+.slot{border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 6px;font-size:14px;font-weight:600}
+.slot[aria-pressed="true"]{border-color:var(--mint-strong);background:var(--mint);color:var(--mint-ink)}
+.slot:disabled{opacity:.4;text-decoration:line-through}
+.pays{display:grid;gap:8px}
+.w-ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:13px;flex:0 0 auto}
+.err{background:var(--peach);color:var(--peach-ink);border-radius:12px;padding:10px 12px;font-size:14px;font-weight:600;margin-top:12px}
+.info{background:var(--sky);color:var(--sky-ink);border-radius:12px;padding:10px 12px;font-size:13.5px;margin-top:10px}
+.done{text-align:center;padding:30px 10px}
+.done .big{font-size:56px}
+.done h2{margin:8px 0 4px;font-size:26px}
+.done .lines{text-align:left;margin-top:18px}
+.saved-addr{border:1px dashed var(--mint-strong);background:var(--mint);color:var(--mint-ink);border-radius:12px;padding:8px 12px;font-size:13.5px;font-weight:600;margin-bottom:10px;width:100%;text-align:left}
+
+footer{color:var(--muted);font-size:12.5px;padding:30px 0 10px;max-width:62ch}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;z-index:60;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brandbar">
+      <div class="logo"><span class="logo-mark" aria-hidden="true">🧺</span><span data-i18n="logo">Где дешевле</span></div>
+      <div class="langs" role="group" aria-label="Язык">
+        <button data-lang="ru">RU</button><button data-lang="kk">KZ</button><button data-lang="en">EN</button>
+      </div>
+      <button class="theme-btn" id="themeBtn">🌙</button>
+    </div>
+    <div id="hero">
+      <h1 class="lead" data-i18n="heroTitle"></h1>
+      <p class="sub" data-i18n="heroSub"></p>
+      <label class="search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" autocomplete="off" data-i18n-ph="searchPh">
+      </label>
+      <p class="note" data-i18n="note"></p>
+    </div>
+  </header>
+  <main id="main"></main>
+  <footer data-i18n="footer"></footer>
+</div>
+
+<nav class="tabs">
+  <div class="in">
+    <button class="tab" data-view="catalog"><span class="ti" aria-hidden="true">🏷️</span><span data-i18n="tabCatalog"></span></button>
+    <button class="tab" data-view="promo"><span class="ti" aria-hidden="true">🔥</span><span data-i18n="tabPromo"></span></button>
+    <button class="tab" data-view="stores"><span class="ti" aria-hidden="true">🏬</span><span data-i18n="tabStores"></span></button>
+    <button class="tab" data-view="cart"><span class="ti" aria-hidden="true">🛒</span><span data-i18n="tabCart"></span><span class="badge" id="cartBadge" hidden></span></button>
+    <button class="tab" data-view="fav"><span class="ti" aria-hidden="true">♡</span><span data-i18n="tabFav"></span></button>
+  </div>
+</nav>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+<section class="co" id="co" role="dialog" aria-modal="true"></section>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ================= ПЕРЕВОДЫ ================= */
+const I18N = {
+ru:{
+ logo:"Где дешевле",
+ heroTitle:"Сравните цены в 9 магазинах перед покупкой",
+ heroSub:"Magnum, Small, Galmart, Anvar, Toimart, Metro, Arbuz.kz, Kaspi и Airba Fresh на одной странице. Соберите корзину, выберите магазин и оформите доставку.",
+ searchPh:"Молоко, Pampers, Tide…",
+ note:"Цены на сайте демонстрационные и примерные. Реальные цены отличаются по городам и меняются каждый день. Заказы и оплата работают в демо-режиме.",
+ footer:"Сайт не связан с перечисленными сетями. Названия магазинов и брендов указаны только для сравнения. Перед покупкой проверяйте цену в приложении или на кассе магазина.",
+ tabCatalog:"Каталог", tabPromo:"Акции", tabStores:"Магазины", tabCart:"Корзина", tabFav:"Избранное",
+ themeLbl:"Сменить тему", langLbl:"Язык",
+ sortCheap:"Сначала дешёвые", sortExp:"Сначала дорогие", sortSave:"Самая большая разница", sortName:"По названию",
+ onlyPromo:"Только акции", storesCount:"Магазины: {n} из {m}", selectAll:"Выбрать все",
+ items:["товар","товара","товаров"], allBrands:"Все бренды", viewList:"Список", viewGrid:"Плитка",
+ upTo:"до {x}, выгода {y}", oneStore:"только в одном магазине", notInSelected:"Нет в выбранных магазинах",
+ toCart:"В корзину", inCart:"В корзине: {n}", favAdd:"В избранное", favRemove:"Убрать из избранного",
+ nothingT:"Ничего не найдено", nothingX:"Попробуйте другое слово или выберите «Все товары».", resetFilters:"Сбросить фильтры",
+ promoTitle:"Акции недели", promoSub:"Скидки действуют до {d}. Самые большие скидки вверху.", promoNone:"В выбранных магазинах нет акций. Добавьте больше магазинов в фильтре каталога.",
+ favTitle:"Избранное", favSub:"Изменение самой низкой цены за последние 4 недели.",
+ favEmptyT:"Здесь будут товары, которые вы покупаете часто", favEmptyX:"Нажмите ♡ на карточке товара, чтобы следить за его ценой.",
+ openCatalog:"Открыть каталог", trendMonth:"за месяц", noChange:"цена не менялась",
+ cartTitle:"Корзина", cartEmptyT:"Корзина пустая", cartEmptyX:"Добавьте товары, и мы посчитаем, в каком магазине весь список выйдет дешевле.",
+ clearCart:"Очистить корзину", cheapestT:"Где весь список дешевле",
+ cheapestWin:"Выгоднее всего в {s}: {x}.", cheaperBy:"Это на {x} меньше, чем в самом дорогом магазине.",
+ noneFull:"Ни в одном магазине нет всего списка сразу. Распределите товары по разным магазинам.",
+ missing:"нет товаров: {n}", takeHere:"Взять здесь",
+ optT:"Каждый товар там, где дешевле", optX:"Товары распределятся по магазинам с самой низкой ценой.", optSave:"Экономия {x} по сравнению с текущей корзиной.", optBtn:"Распределить по низким ценам", optDone:"Корзина уже собрана по самым низким ценам.",
+ summaryT:"Итого", goods:"Товары", delivery:"Доставка", free:"бесплатно", total:"К оплате", checkout:"Оформить заказ",
+ storeLbl:"Магазин", ordersT:"Мои заказы", statusNew:"Принят",
+ storesTitle:"Магазины", storesSub:"Выбранные товары разложены по магазинам. Откройте магазин, чтобы увидеть его цены и оформить заказ.",
+ picked:"Выбрано: {n} шт.", pickedNone:"Товары не выбраны",
+ delivInfo:"Доставка {fee}, бесплатно от {min}", delivFree:"Бесплатная доставка", onlyDelivery:"только доставка",
+ listTotal:"Весь ваш список здесь: {x}", listMissing:"Нет {n} из вашего списка",
+ yourPicks:"Ваш выбор в этом магазине", storeGoods:"Все товары магазина", orderHere:"Оформить заказ в {s}", back:"Назад",
+ storeSearchPh:"Поиск в магазине",
+ coTitle:"Оформление заказа", stepOrder:"Заказ", stepDelivery:"Доставка", stepPay:"Оплата", orderNo:"Заказ № {n}",
+ next:"Далее", toPay:"К оплате",
+ modeDelivery:"Курьером", modeDeliveryX:"до двери", modePickup:"Самовывоз", modePickupX:"из магазина бесплатно",
+ pickupNote:"Заберите заказ на стойке выдачи в выбранном магазине вашего города.",
+ noPickupNote:"{s}: самовывоза нет, заказ привезёт курьер.",
+ addrT:"Адрес доставки", city:"Город", street:"Улица или микрорайон", house:"Дом", apt:"Квартира", entrance:"Подъезд", floor:"Этаж", comment:"Комментарий для курьера", phone:"Телефон",
+ savedAddr:"Использовать сохранённый адрес: {a}",
+ timeT:"Дата и время", today:"Сегодня", tomorrow:"Завтра",
+ errAddr:"Укажите улицу и номер дома.", errPhone:"Введите номер телефона полностью: +7 и 10 цифр.", errTime:"Выберите время доставки.", errPay:"Выберите способ оплаты.",
+ payT:"Способ оплаты", cardT:"Банковская карта", cardX:"Visa, Mastercard, UnionPay. Данные карты вводятся на странице банка.",
+ walletsT:"Электронные кошельки", payBtn:"Оплатить {x}", demoPay:"Демо-режим: деньги не списываются, заказ не передаётся в магазин.",
+ whenLbl:"Когда", whereLbl:"Куда", payLbl:"Оплата", pickupAt:"Самовывоз из магазина",
+ doneT:"Заказ оформлен", doneX:"Номер заказа {n}. Статус заказа можно посмотреть в корзине.", doneBack:"Вернуться в каталог",
+ pricesT:"Цены по магазинам", noStock:"нет в наличии",
+ savingX:"Покупая в {a}, вы сэкономите {x} по сравнению с {b}.",
+ chartT:"Самая низкая цена за 8 недель", chartCap:"Минимум за период: {a}, максимум: {b}.", w8:"8 нед.", w4:"4 нед.", now:"сейчас",
+ addCart:"Добавить в корзину", inCartMore:"В корзине: {n}, ещё", inFav:"В избранном", addFrom:"Добавить из {s}",
+ tAdded:"Добавлено: {n}", tFavAdd:"Добавлено в избранное", tFavRem:"Убрано из избранного", tCleared:"Корзина очищена",
+ tOneStore:"Нужен хотя бы один магазин", tMoved:"Все товары перенесены в {s}", tOpt:"Товары распределены по самым низким ценам",
+ u_g:"г",u_kg:"кг",u_ml:"мл",u_l:"л",u_pcs:"шт",u_bag:"пак.",u_roll:"рул.",u_m:"м",u_sheet:"л.",
+ cities:["Астана","Алматы","Шымкент","Караганда","Актобе","Тараз","Павлодар","Усть-Каменогорск","Семей","Атырау","Костанай","Кызылорда","Уральск","Петропавловск","Актау","Туркестан","Кокшетау","Талдыкорган","Экибастуз","Косшы"]
+},
+kk:{
+ logo:"Қай жерде арзан",
+ heroTitle:"Сатып алмас бұрын 9 дүкендегі бағаларды салыстырыңыз",
+ heroSub:"Magnum, Small, Galmart, Anvar, Toimart, Metro, Arbuz.kz, Kaspi және Airba Fresh бір бетте. Себет жинап, дүкенді таңдаңыз және жеткізуді рәсімдеңіз.",
+ searchPh:"Сүт, Pampers, Tide…",
+ note:"Сайттағы бағалар үлгі ретінде берілген және шамамен алынған. Нақты бағалар қалаға қарай өзгеріп, күн сайын жаңарады. Тапсырыс пен төлем демо-режимде жұмыс істейді.",
+ footer:"Сайт аталған желілермен байланысты емес. Дүкендер мен брендтердің атаулары тек салыстыру үшін көрсетілген. Сатып алмас бұрын бағаны дүкен қосымшасынан немесе кассадан тексеріңіз.",
+ tabCatalog:"Каталог", tabPromo:"Акциялар", tabStores:"Дүкендер", tabCart:"Себет", tabFav:"Таңдаулы",
+ themeLbl:"Тақырыпты ауыстыру", langLbl:"Тіл",
+ sortCheap:"Алдымен арзандары", sortExp:"Алдымен қымбаттары", sortSave:"Баға айырмасы ең үлкен", sortName:"Атауы бойынша",
+ onlyPromo:"Тек акциялар", storesCount:"Дүкендер: {n} / {m}", selectAll:"Барлығын таңдау",
+ items:["тауар"], allBrands:"Барлық брендтер", viewList:"Тізім", viewGrid:"Карточкалар",
+ upTo:"{x} дейін, үнем {y}", oneStore:"тек бір дүкенде", notInSelected:"Таңдалған дүкендерде жоқ",
+ toCart:"Себетке", inCart:"Себетте: {n}", favAdd:"Таңдаулыларға", favRemove:"Таңдаулылардан алып тастау",
+ nothingT:"Ештеңе табылмады", nothingX:"Басқа сөзді теріп көріңіз немесе «Барлық тауарлар» бөлімін таңдаңыз.", resetFilters:"Сүзгілерді тазалау",
+ promoTitle:"Апта акциялары", promoSub:"Жеңілдіктер {d} дейін жарамды. Ең үлкен жеңілдіктер жоғарыда.", promoNone:"Таңдалған дүкендерде акция жоқ. Каталог сүзгісіне көбірек дүкен қосыңыз.",
+ favTitle:"Таңдаулылар", favSub:"Соңғы 4 аптадағы ең төмен бағаның өзгерісі.",
+ favEmptyT:"Жиі сатып алатын тауарларыңыз осында болады", favEmptyX:"Бағасын бақылау үшін тауар карточкасындағы ♡ белгісін басыңыз.",
+ openCatalog:"Каталогты ашу", trendMonth:"бір айда", noChange:"баға өзгерген жоқ",
+ cartTitle:"Себет", cartEmptyT:"Себет бос", cartEmptyX:"Тауарларды қосыңыз, біз бүкіл тізім қай дүкенде арзанырақ болатынын есептейміз.",
+ clearCart:"Себетті тазалау", cheapestT:"Бүкіл тізім қай жерде арзан",
+ cheapestWin:"Ең тиімдісі — {s}: {x}.", cheaperBy:"Бұл ең қымбат дүкеннен {x} арзан.",
+ noneFull:"Бірде-бір дүкенде бүкіл тізім жоқ. Тауарларды әр дүкенге бөліңіз.",
+ missing:"жоқ тауар: {n}", takeHere:"Осы жерден алу",
+ optT:"Әр тауар ең арзан дүкеннен", optX:"Тауарлар бағасы ең төмен дүкендерге бөлінеді.", optSave:"Қазіргі себетпен салыстырғанда {x} үнем.", optBtn:"Ең төмен бағалар бойынша бөлу", optDone:"Себет ең төмен бағалар бойынша жиналған.",
+ summaryT:"Қорытынды", goods:"Тауарлар", delivery:"Жеткізу", free:"тегін", total:"Төлеуге", checkout:"Тапсырыс беру",
+ storeLbl:"Дүкен", ordersT:"Менің тапсырыстарым", statusNew:"Қабылданды",
+ storesTitle:"Дүкендер", storesSub:"Таңдалған тауарлар дүкендер бойынша бөлінген. Бағаларды көріп, тапсырыс беру үшін дүкенді ашыңыз.",
+ picked:"Таңдалды: {n} дана", pickedNone:"Тауар таңдалмаған",
+ delivInfo:"Жеткізу {fee}, {min} бастап тегін", delivFree:"Тегін жеткізу", onlyDelivery:"тек жеткізу",
+ listTotal:"Бүкіл тізіміңіз мұнда: {x}", listMissing:"Тізіміңізден {n} тауар жоқ",
+ yourPicks:"Осы дүкендегі таңдауыңыз", storeGoods:"Дүкеннің барлық тауарлары", orderHere:"{s} дүкеніне тапсырыс беру", back:"Артқа",
+ storeSearchPh:"Дүкеннен іздеу",
+ coTitle:"Тапсырысты рәсімдеу", stepOrder:"Тапсырыс", stepDelivery:"Жеткізу", stepPay:"Төлем", orderNo:"Тапсырыс № {n}",
+ next:"Әрі қарай", toPay:"Төлеуге",
+ modeDelivery:"Курьермен", modeDeliveryX:"есікке дейін", modePickup:"Өзі алып кету", modePickupX:"дүкеннен тегін",
+ pickupNote:"Тапсырысты қалаңыздағы таңдалған дүкеннің беру бөлімінен алыңыз.",
+ noPickupNote:"{s}: өзі алып кету жоқ, тапсырысты курьер жеткізеді.",
+ addrT:"Жеткізу мекенжайы", city:"Қала", street:"Көше немесе шағын аудан", house:"Үй", apt:"Пәтер", entrance:"Кіреберіс", floor:"Қабат", comment:"Курьерге түсініктеме", phone:"Телефон",
+ savedAddr:"Сақталған мекенжайды пайдалану: {a}",
+ timeT:"Күні мен уақыты", today:"Бүгін", tomorrow:"Ертең",
+ errAddr:"Көшені және үй нөмірін көрсетіңіз.", errPhone:"Телефон нөмірін толық енгізіңіз: +7 және 10 сан.", errTime:"Жеткізу уақытын таңдаңыз.", errPay:"Төлем тәсілін таңдаңыз.",
+ payT:"Төлем тәсілі", cardT:"Банк картасы", cardX:"Visa, Mastercard, UnionPay. Карта деректері банк бетінде енгізіледі.",
+ walletsT:"Электрондық әмияндар", payBtn:"{x} төлеу", demoPay:"Демо-режим: ақша есептен алынбайды, тапсырыс дүкенге жіберілмейді.",
+ whenLbl:"Қашан", whereLbl:"Қайда", payLbl:"Төлем", pickupAt:"Дүкеннен өзі алып кету",
+ doneT:"Тапсырыс рәсімделді", doneX:"Тапсырыс нөмірі {n}. Тапсырыс күйін себеттен көруге болады.", doneBack:"Каталогқа оралу",
+ pricesT:"Дүкендер бойынша бағалар", noStock:"қолда жоқ",
+ savingX:"{a} дүкенінен алсаңыз, {b} дүкенімен салыстырғанда {x} үнемдейсіз.",
+ chartT:"8 аптадағы ең төмен баға", chartCap:"Кезеңдегі ең төмені: {a}, ең жоғарысы: {b}.", w8:"8 апта", w4:"4 апта", now:"қазір",
+ addCart:"Себетке қосу", inCartMore:"Себетте: {n}, тағы", inFav:"Таңдаулыларда", addFrom:"{s} дүкенінен қосу",
+ tAdded:"Қосылды: {n}", tFavAdd:"Таңдаулыларға қосылды", tFavRem:"Таңдаулылардан алынды", tCleared:"Себет тазартылды",
+ tOneStore:"Кемінде бір дүкен керек", tMoved:"Барлық тауар {s} дүкеніне ауыстырылды", tOpt:"Тауарлар ең төмен бағалар бойынша бөлінді",
+ u_g:"г",u_kg:"кг",u_ml:"мл",u_l:"л",u_pcs:"дана",u_bag:"қалта",u_roll:"орам",u_m:"м",u_sheet:"парақ",
+ cities:["Астана","Алматы","Шымкент","Қарағанды","Ақтөбе","Тараз","Павлодар","Өскемен","Семей","Атырау","Қостанай","Қызылорда","Орал","Петропавл","Ақтау","Түркістан","Көкшетау","Талдықорған","Екібастұз","Қосшы"]
+},
+en:{
+ logo:"Best Price KZ",
+ heroTitle:"Compare prices across 9 stores before you shop",
+ heroSub:"Magnum, Small, Galmart, Anvar, Toimart, Metro, Arbuz.kz, Kaspi and Airba Fresh on one page. Build a basket, pick a store and book delivery.",
+ searchPh:"Milk, Pampers, Tide…",
+ note:"Prices on this site are sample estimates. Real prices vary by city and change daily. Orders and payment run in demo mode.",
+ footer:"This site is not affiliated with the listed chains. Store and brand names are used for comparison only. Check the price in the store's app or at the till before buying.",
+ tabCatalog:"Catalog", tabPromo:"Deals", tabStores:"Stores", tabCart:"Basket", tabFav:"Saved",
+ themeLbl:"Switch theme", langLbl:"Language",
+ sortCheap:"Cheapest first", sortExp:"Most expensive first", sortSave:"Biggest price gap", sortName:"By name",
+ onlyPromo:"Deals only", storesCount:"Stores: {n} of {m}", selectAll:"Select all",
+ items:["item","items"], allBrands:"All brands", viewList:"List", viewGrid:"Grid",
+ upTo:"up to {x}, save {y}", oneStore:"only in one store", notInSelected:"Not in selected stores",
+ toCart:"Add to basket", inCart:"In basket: {n}", favAdd:"Save", favRemove:"Remove from saved",
+ nothingT:"Nothing found", nothingX:"Try another word or choose “All products”.", resetFilters:"Reset filters",
+ promoTitle:"This week's deals", promoSub:"Deals are valid until {d}. Biggest discounts first.", promoNone:"No deals in the selected stores. Add more stores in the catalog filter.",
+ favTitle:"Saved", favSub:"Change in the lowest price over the last 4 weeks.",
+ favEmptyT:"Products you buy often will appear here", favEmptyX:"Tap ♡ on a product to track its price.",
+ openCatalog:"Open catalog", trendMonth:"this month", noChange:"no price change",
+ cartTitle:"Basket", cartEmptyT:"Your basket is empty", cartEmptyX:"Add products and we'll work out which store is cheapest for the whole list.",
+ clearCart:"Clear basket", cheapestT:"Cheapest store for the whole list",
+ cheapestWin:"Best value at {s}: {x}.", cheaperBy:"That's {x} less than the most expensive store.",
+ noneFull:"No single store has your whole list. Split the products across stores.",
+ missing:"{n} missing", takeHere:"Buy here",
+ optT:"Each product where it's cheapest", optX:"Products are assigned to the stores with the lowest price.", optSave:"Saves {x} compared with your current basket.", optBtn:"Split by lowest price", optDone:"Your basket already uses the lowest prices.",
+ summaryT:"Summary", goods:"Products", delivery:"Delivery", free:"free", total:"Total", checkout:"Check out",
+ storeLbl:"Store", ordersT:"My orders", statusNew:"Accepted",
+ storesTitle:"Stores", storesSub:"Your products grouped by store. Open a store to see its prices and place an order.",
+ picked:"Selected: {n} pcs", pickedNone:"No products selected",
+ delivInfo:"Delivery {fee}, free from {min}", delivFree:"Free delivery", onlyDelivery:"delivery only",
+ listTotal:"Your whole list here: {x}", listMissing:"{n} of your products missing",
+ yourPicks:"Your picks in this store", storeGoods:"All products in this store", orderHere:"Order from {s}", back:"Back",
+ storeSearchPh:"Search this store",
+ coTitle:"Checkout", stepOrder:"Order", stepDelivery:"Delivery", stepPay:"Payment", orderNo:"Order #{n}",
+ next:"Next", toPay:"To pay",
+ modeDelivery:"Courier", modeDeliveryX:"to your door", modePickup:"Pickup", modePickupX:"free, from the store",
+ pickupNote:"Collect your order at the pickup desk of the chosen store in your city.",
+ noPickupNote:"{s}: no pickup, a courier will deliver this part.",
+ addrT:"Delivery address", city:"City", street:"Street or microdistrict", house:"Building", apt:"Apartment", entrance:"Entrance", floor:"Floor", comment:"Note for the courier", phone:"Phone",
+ savedAddr:"Use saved address: {a}",
+ timeT:"Date and time", today:"Today", tomorrow:"Tomorrow",
+ errAddr:"Enter the street and building number.", errPhone:"Enter the full phone number: +7 and 10 digits.", errTime:"Choose a delivery time.", errPay:"Choose a payment method.",
+ payT:"Payment method", cardT:"Bank card", cardX:"Visa, Mastercard, UnionPay. Card details are entered on the bank's page.",
+ walletsT:"E-wallets", payBtn:"Pay {x}", demoPay:"Demo mode: no money is charged and the order is not sent to the store.",
+ whenLbl:"When", whereLbl:"Where", payLbl:"Payment", pickupAt:"Pickup from the store",
+ doneT:"Order placed", doneX:"Order number {n}. You can check its status in the basket.", doneBack:"Back to catalog",
+ pricesT:"Prices by store", noStock:"out of stock",
+ savingX:"Buying at {a} saves you {x} compared with {b}.",
+ chartT:"Lowest price over 8 weeks", chartCap:"Period low: {a}, high: {b}.", w8:"8 wk", w4:"4 wk", now:"now",
+ addCart:"Add to basket", inCartMore:"In basket: {n}, add more", inFav:"Saved", addFrom:"Add from {s}",
+ tAdded:"Added: {n}", tFavAdd:"Saved", tFavRem:"Removed from saved", tCleared:"Basket cleared",
+ tOneStore:"Keep at least one store", tMoved:"All products moved to {s}", tOpt:"Products split by lowest price",
+ u_g:"g",u_kg:"kg",u_ml:"ml",u_l:"l",u_pcs:"pcs",u_bag:"bags",u_roll:"rolls",u_m:"m",u_sheet:"sheets",
+ cities:["Astana","Almaty","Shymkent","Karaganda","Aktobe","Taraz","Pavlodar","Oskemen","Semey","Atyrau","Kostanay","Kyzylorda","Oral","Petropavl","Aktau","Turkistan","Kokshetau","Taldykorgan","Ekibastuz","Kosshy"]
+}};
+const LI = {ru:0,kk:1,en:2};
+const LOC = {ru:"ru-RU",kk:"ru-RU",en:"en-GB"};
+const KK_M=["қаңтар","ақпан","наурыз","сәуір","мамыр","маусым","шілде","тамыз","қыркүйек","қазан","қараша","желтоқсан"];
+const KK_W=["жс","дс","сс","ср","бс","жм","сб"];
+function fdate(d,o){ // o: {day, month:"long"|"short", weekday, time}
+  if(L!=="kk") return d.toLocaleString(LOC[L],{...(o.day?{day:"numeric"}:{}),...(o.month?{month:o.month}:{}),...(o.weekday?{weekday:"short"}:{}),...(o.time?{hour:"2-digit",minute:"2-digit"}:{})});
+  const parts=[];
+  if(o.weekday) parts.push(KK_W[d.getDay()]);
+  if(o.day) parts.push(d.getDate()+(o.month?" "+(o.month==="short"?KK_M[d.getMonth()].slice(0,3):KK_M[d.getMonth()]):""));
+  let s=parts.join(", ");
+  if(o.time) s+=", "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
+  return s;
+}
+
+/* ================= МАГАЗИНЫ ================= */
+const STORES = [
+  {id:"magnum",  name:"Magnum",     k:0.97, avail:.95, color:"#F2A7B5", fee:990,  freeFrom:15000, pickup:true},
+  {id:"small",   name:"Small",      k:1.02, avail:.92, color:"#F6C98F", fee:790,  freeFrom:12000, pickup:true},
+  {id:"galmart", name:"Galmart",    k:1.08, avail:.90, color:"#B7A6EC", fee:1290, freeFrom:20000, pickup:true},
+  {id:"anvar",   name:"Anvar",      k:1.00, avail:.86, color:"#9ED3C0", fee:890,  freeFrom:15000, pickup:true},
+  {id:"toimart", name:"Toimart",    k:0.94, avail:.80, color:"#F3DD7D", fee:690,  freeFrom:10000, pickup:true},
+  {id:"metro",   name:"Metro",      k:0.95, avail:.85, color:"#8FB9E6", fee:1490, freeFrom:25000, pickup:true},
+  {id:"arbuz",   name:"Arbuz.kz",   k:1.05, avail:.88, color:"#A9DB8C", fee:690,  freeFrom:12000, pickup:false},
+  {id:"kaspi",   name:"Kaspi",      k:1.03, avail:.82, color:"#F0A48F", fee:0,    freeFrom:0,     pickup:false},
+  {id:"airba",   name:"Airba Fresh",k:1.06, avail:.80, color:"#C3CBD6", fee:790,  freeFrom:10000, pickup:false}
+];
+const STORE = Object.fromEntries(STORES.map(s=>[s.id,s]));
+
+/* ================= КАТЕГОРИИ [id, ru, kk, en, иконка, фон] ================= */
+const CATS = [
+ ["all","Все товары","Барлық тауарлар","All products","✨","var(--surface-2)"],
+ ["dairy","Молочные и яйца","Сүт өнімдері мен жұмыртқа","Dairy & eggs","🥛","var(--sky)"],
+ ["meat","Мясо и рыба","Ет және балық","Meat & fish","🥩","var(--peach)"],
+ ["bread","Хлеб и выпечка","Нан және тоқаш","Bread & bakery","🍞","var(--butter)"],
+ ["veg","Овощи и фрукты","Көкөністер мен жемістер","Fruit & vegetables","🥕","var(--mint)"],
+ ["grocery","Бакалея","Бакалея","Pantry","🌾","var(--butter)"],
+ ["drinks","Напитки, чай, кофе","Сусындар, шай, кофе","Drinks, tea & coffee","🧃","var(--sky)"],
+ ["frozen","Замороженные","Мұздатылған өнімдер","Frozen","🧊","var(--sky)"],
+ ["sweets","Сладости","Тәттілер","Sweets","🍫","var(--peach)"],
+ ["kids","Детские товары","Балалар тауарлары","Baby","🍼","var(--lilac)"],
+ ["house","Хозтовары","Шаруашылық тауарлары","Household","🧽","var(--mint)"],
+ ["soap","Мыломойка","Жуу-тазалау құралдары","Cleaning & laundry","🫧","var(--sky)"],
+ ["beauty","Косметика","Косметика","Cosmetics","💄","var(--lilac)"],
+ ["hygiene","Личная гигиена","Жеке гигиена","Personal care","🪥","var(--mint)"],
+ ["home","Товары для дома","Үйге арналған тауарлар","Home","🛋️","var(--butter)"],
+ ["sport","Спорт и отдых","Спорт және демалыс","Sports & outdoors","⚽","var(--mint)"],
+ ["pets","Зоотовары","Жануарларға арналған тауарлар","Pets","🐾","var(--peach)"],
+ ["office","Канцтовары","Кеңсе тауарлары","Stationery","✏️","var(--lilac)"],
+ ["tech","Бытовая техника","Тұрмыстық техника","Appliances","🔌","var(--sky)"],
+ ["pharma","Аптечка","Дәріқобдиша","First aid","🩹","var(--peach)"]
+].map(c=>({id:c[0],n:[c[1],c[2],c[3]],ic:c[4],tint:c[5]}));
+const CAT = Object.fromEntries(CATS.map(c=>[c.id,c]));
+
+/* ================= ТИПЫ ТОВАРОВ: ключ → [категория, ru, kk, en, эмодзи] ================= */
+const TYPES = {
+ milk:["dairy","Молоко","Сүт","Milk","🥛"],
+ kefir:["dairy","Кефир","Кефир","Kefir","🥛"],
+ eggs:["dairy","Яйца куриные","Тауық жұмыртқасы","Chicken eggs","🥚"],
+ smetana:["dairy","Сметана","Қаймақ","Sour cream","🥣"],
+ cheese:["dairy","Сыр","Ірімшік","Cheese","🧀"],
+ butter:["dairy","Масло сливочное","Сары май","Butter","🧈"],
+ tvorog:["dairy","Творог","Сүзбе","Cottage cheese","🥣"],
+ yogurt:["dairy","Йогурт","Йогурт","Yogurt","🍶"],
+ beef:["meat","Говядина","Сиыр еті","Beef","🥩"],
+ chicken:["meat","Филе куриное","Тауық филесі","Chicken fillet","🍗"],
+ mince:["meat","Фарш говяжий","Сиыр тартпа еті","Beef mince","🥩"],
+ lamb:["meat","Баранина","Қой еті","Lamb","🍖"],
+ sausage:["meat","Колбаса варёная","Пісірілген шұжық","Boiled sausage","🌭"],
+ kazy:["meat","Казы","Қазы","Kazy horse sausage","🥓"],
+ fish:["meat","Скумбрия холодного копчения","Салқын ысталған скумбрия","Cold-smoked mackerel","🐟"],
+ bread:["bread","Хлеб пшеничный","Бидай наны","Wheat bread","🍞"],
+ lepeshka:["bread","Лепёшка тандырная","Тандыр нан","Tandyr flatbread","🫓"],
+ baursak:["bread","Баурсаки","Бауырсақ","Baursak","🥯"],
+ cookies:["bread","Печенье","Печенье","Cookies","🍪"],
+ potato:["veg","Картофель","Картоп","Potatoes","🥔"],
+ onion:["veg","Лук репчатый","Пияз","Onions","🧅"],
+ tomato:["veg","Помидоры","Қызанақ","Tomatoes","🍅"],
+ cucumber:["veg","Огурцы","Қияр","Cucumbers","🥒"],
+ carrot:["veg","Морковь","Сәбіз","Carrots","🥕"],
+ apple:["veg","Яблоки","Алма","Apples","🍎"],
+ banana:["veg","Бананы","Банан","Bananas","🍌"],
+ lemon:["veg","Лимоны","Лимон","Lemons","🍋"],
+ sugar:["grocery","Сахар-песок","Қант","Sugar","🍚"],
+ buckwheat:["grocery","Гречка","Қарақұмық","Buckwheat","🌾"],
+ rice:["grocery","Рис","Күріш","Rice","🍚"],
+ flour:["grocery","Мука пшеничная","Бидай ұны","Wheat flour","🌾"],
+ oil:["grocery","Масло подсолнечное","Күнбағыс майы","Sunflower oil","🫙"],
+ pasta:["grocery","Макароны","Макарон","Pasta","🍝"],
+ salt:["grocery","Соль","Тұз","Salt","🧂"],
+ water:["drinks","Вода питьевая","Ауыз су","Drinking water","💧"],
+ cola:["drinks","Газированный напиток","Газдалған сусын","Soft drink","🥤"],
+ juice:["drinks","Сок","Шырын","Juice","🧃"],
+ tea:["drinks","Чай чёрный","Қара шай","Black tea","🍵"],
+ coffee:["drinks","Кофе растворимый","Ерігіш кофе","Instant coffee","☕"],
+ kumys:["drinks","Кумыс","Қымыз","Kumis","🥛"],
+ pelmeni:["frozen","Пельмени","Пельмень","Dumplings","🥟"],
+ icecream:["frozen","Мороженое","Балмұздақ","Ice cream","🍦"],
+ vegmix:["frozen","Овощная смесь","Көкөніс қоспасы","Mixed vegetables","🥦"],
+ manty:["frozen","Манты","Манты","Manty","🥟"],
+ choco:["sweets","Шоколад молочный","Сүтті шоколад","Milk chocolate","🍫"],
+ candy:["sweets","Конфеты шоколадные","Шоколад кәмпиттері","Chocolate candies","🍬"],
+ honey:["sweets","Мёд","Бал","Honey","🍯"],
+ diapers:["kids","Подгузники","Жөргек","Diapers","👶"],
+ formula:["kids","Смесь молочная","Сүт қоспасы","Infant formula","🍼"],
+ puree:["kids","Пюре детское","Балалар езбесі","Baby puree","🍐"],
+ wipes:["kids","Влажные салфетки детские","Балалар дымқыл майлығы","Baby wipes","🧻"],
+ porridge:["kids","Каша детская","Балалар ботқасы","Baby cereal","🥣"],
+ trashbags:["house","Пакеты для мусора","Қоқыс қаптары","Trash bags","🗑️"],
+ sponge:["house","Губки для посуды","Ыдыс жуатын губка","Dish sponges","🧽"],
+ foil:["house","Фольга пищевая","Тағамдық фольга","Food foil","🧻"],
+ tp:["house","Туалетная бумага","Дәретхана қағазы","Toilet paper","🧻"],
+ towels:["house","Бумажные полотенца","Қағаз сүлгі","Paper towels","🧻"],
+ powder:["soap","Стиральный порошок","Кір жуғыш ұнтақ","Washing powder","🫧"],
+ caps:["soap","Капсулы для стирки","Кір жууға арналған капсулалар","Laundry capsules","🫧"],
+ dish:["soap","Средство для мытья посуды","Ыдыс жуғыш құрал","Dishwashing liquid","🍽️"],
+ cleaner:["soap","Чистящее средство","Тазалағыш құрал","Cleaner","🧴"],
+ hsoap:["soap","Мыло хозяйственное","Кір сабын","Laundry soap","🧼"],
+ softener:["soap","Кондиционер для белья","Кір жұмсартқыш","Fabric softener","🌸"],
+ cream:["beauty","Крем для лица и тела","Бет пен денеге арналған крем","Face & body cream","🧴"],
+ shampoo:["beauty","Шампунь","Сусабын","Shampoo","🧴"],
+ mascara:["beauty","Тушь для ресниц","Кірпік тушы","Mascara","💄"],
+ micellar:["beauty","Мицеллярная вода","Мицеллярлы су","Micellar water","💧"],
+ balm:["beauty","Бальзам для волос","Шаш бальзамы","Hair conditioner","🧴"],
+ paste:["hygiene","Зубная паста","Тіс пастасы","Toothpaste","🪥"],
+ brush:["hygiene","Зубная щётка","Тіс щеткасы","Toothbrush","🪥"],
+ deo:["hygiene","Дезодорант","Дезодорант","Deodorant","🧴"],
+ pads:["hygiene","Прокладки","Гигиеналық төсеніштер","Sanitary pads","🌸"],
+ razor:["hygiene","Бритвенный станок","Қырыну ұстарасы","Razor","🪒"],
+ lsoap:["hygiene","Жидкое мыло","Сұйық сабын","Liquid soap","🧼"],
+ towel:["home","Полотенце махровое","Түкті сүлгі","Terry towel","🛁"],
+ containers:["home","Контейнеры для еды","Тамақ контейнерлері","Food containers","🥡"],
+ pan:["home","Сковорода","Таба","Frying pan","🍳"],
+ bulb:["home","Светодиодная лампа","Жарықдиодты шам","LED bulb","💡"],
+ plaid:["home","Плед","Жұмсақ жамылғы","Blanket","🛋️"],
+ ball:["sport","Мяч футбольный","Футбол добы","Football","⚽"],
+ yoga:["sport","Коврик для йоги","Йога кілемшесі","Yoga mat","🧘"],
+ grill:["sport","Мангал складной","Жиналмалы мангал","Folding grill","🔥"],
+ thermos:["sport","Термос","Термос","Thermos","🧉"],
+ dumbbell:["sport","Гантели разборные","Құрама гантельдер","Adjustable dumbbells","🏋️"],
+ coal:["sport","Уголь древесный","Ағаш көмірі","Charcoal","🪵"],
+ tent:["sport","Палатка туристическая","Туристік шатыр","Camping tent","⛺"],
+ catfood:["pets","Корм для кошек","Мысық азығы","Cat food","🐱"],
+ dogfood:["pets","Корм для собак","Ит азығы","Dog food","🐶"],
+ litter:["pets","Наполнитель для кошачьего туалета","Мысық дәретханасына толтырғыш","Cat litter","🐾"],
+ notebook:["office","Тетрадь","Дәптер","Exercise book","📓"],
+ pens:["office","Ручки шариковые","Шарикті қаламсаптар","Ballpoint pens","🖊️"],
+ paper:["office","Бумага А4","А4 қағазы","A4 paper","📄"],
+ backpack:["office","Рюкзак школьный","Мектеп рюкзагы","School backpack","🎒"],
+ kettle:["tech","Электрочайник","Электр шәйнек","Electric kettle","🫖"],
+ dryer:["tech","Фен","Шаш кептіргіш","Hair dryer","💨"],
+ blender:["tech","Погружной блендер","Батырмалы блендер","Hand blender","🥤"],
+ batteries:["tech","Батарейки АА","АА батареялары","AA batteries","🔋"],
+ plaster:["pharma","Пластырь бактерицидный","Бактерицидті пластырь","Adhesive bandages","🩹"],
+ cotton:["pharma","Ватные диски","Мақта дискілері","Cotton pads","⚪"],
+ masks:["pharma","Маски медицинские","Медициналық маскалар","Medical masks","😷"],
+ peroxide:["pharma","Перекись водорода 3%","Сутегі асқын тотығы 3%","Hydrogen peroxide 3%","🧪"],
+ thermo:["pharma","Термометр электронный","Электронды термометр","Digital thermometer","🌡️"]
+};
+
+/* ================= ТОВАРЫ: [тип, бренд, характеристика, кол-во, ед., базовая цена ₸]
+   Характеристика — строка или [ru, kk, en] ================= */
+const V = [
+ ["milk","Food Master","2,5%",1,"l",640],["milk","Food Master","3,2%",1,"l",690],["milk","Adal","2,5%",1,"l",620],
+ ["milk","Lactel","3,2%",0.95,"l",720],["milk","Моё","2,5%",0.9,"l",600],["milk","Emil","3,2%",1,"l",610],
+ ["kefir","Food Master","2,5%",0.9,"l",690],["kefir","Lactel","3,2%",0.9,"l",740],["kefir","Adal","1%",1,"l",650],
+ ["eggs","Kazger Kus","C1",10,"pcs",760],["eggs","Kazger Kus","C0",10,"pcs",890],["eggs","Kazger Kus","C1",30,"pcs",2150],["eggs","Шымкент Құс","C1",10,"pcs",740],
+ ["smetana","Моё","20%",400,"g",980],["smetana","Food Master","15%",400,"g",890],["smetana","Adal","20%",350,"g",850],
+ ["cheese","",["Российский 50%","Ресей 50%","Rossiyskiy 50%"],1,"kg",4600],["cheese","President","Gouda 45%",200,"g",1900],["cheese","Hochland",["плавленый, ломтики","балқытылған, тілімдер","processed slices"],150,"g",950],
+ ["butter","Food Master","82,5%",180,"g",1450],["butter","President","82%",200,"g",1950],["butter","Adal","72,5%",180,"g",1150],
+ ["tvorog","Food Master","5%",350,"g",1150],["tvorog","Adal","9%",400,"g",1250],
+ ["yogurt","Activia","2,9%",150,"g",420],["yogurt","Food Master",["клубника 2,5%","құлпынай 2,5%","strawberry 2.5%"],290,"g",480],
+ ["beef","",["на кости","сүйекті","bone-in"],1,"kg",4400],["beef","",["мякоть","жұмсақ еті","boneless"],1,"kg",5600],
+ ["chicken","Kazger Kus","",1,"kg",2350],["chicken","Kazger Kus","",500,"g",1250],["chicken","Шымкент Құс","",1,"kg",2250],
+ ["mince","",["фермерский","фермерлік","farm"],500,"g",2200],["mince","",["фермерский","фермерлік","farm"],1,"kg",4200],
+ ["lamb","",["на кости","сүйекті","bone-in"],1,"kg",4800],
+ ["sausage","Первомайские деликатесы",["Докторская","Докторская","Doktorskaya"],500,"g",2100],["sausage","Первомайские деликатесы",["Молочная","Сүтті","Molochnaya"],400,"g",1650],
+ ["kazy","",["конина","жылқы еті","horse meat"],1,"kg",7800],
+ ["fish","","",1,"kg",4800],
+ ["bread","Аксай нан",["батон","батон","loaf"],400,"g",230],["bread","",["формовой","қалыпты","tin loaf"],500,"g",250],["bread","",["бородинский","бородинский","rye Borodinsky"],350,"g",340],
+ ["lepeshka","","",1,"pcs",200],
+ ["baursak","","",500,"g",900],
+ ["cookies","Юбилейное",["молочное","сүтті","milk"],112,"g",350],["cookies","Рахат",["овсяное","сұлы","oat"],400,"g",750],
+ ["potato","","",1,"kg",260],["onion","","",1,"kg",220],["tomato","",["розовые","қызғылт","pink"],1,"kg",980],["cucumber","","",1,"kg",850],["carrot","","",1,"kg",240],
+ ["apple","",["Апорт","Апорт","Aport"],1,"kg",780],["apple","",["Голден","Голден","Golden"],1,"kg",690],
+ ["banana","",["Эквадор","Эквадор","Ecuador"],1,"kg",920],["lemon","","",1,"kg",1500],
+ ["sugar","Меркенский","",1,"kg",560],["sugar","Меркенский","",5,"kg",2650],
+ ["buckwheat","Мистраль","",900,"g",890],["buckwheat","",["ядрица","ядрица","whole grain"],900,"g",690],
+ ["rice","",["кызылординский","қызылорда","Kyzylorda"],1,"kg",820],["rice","Мистраль",["басмати","басмати","basmati"],500,"g",1100],
+ ["flour","Цесна",["высший сорт","жоғары сұрып","premium"],2,"kg",790],["flour","Цесна",["высший сорт","жоғары сұрып","premium"],5,"kg",1850],
+ ["oil","Шедевр",["рафинированное","тазартылған","refined"],1,"l",930],["oil","Шедевр",["рафинированное","тазартылған","refined"],5,"l",4300],["oil","Золотая семечка","",1,"l",990],
+ ["pasta","Султан",["рожки","мүйізше","elbows"],400,"g",380],["pasta","Цесна",["спагетти","спагетти","spaghetti"],400,"g",360],["pasta","Barilla","Spaghetti №5",450,"g",1050],
+ ["salt","Аралтуз",["поваренная","ас тұзы","table"],1,"kg",150],
+ ["water","Tassay",["негазированная","газсыз","still"],1.5,"l",290],["water","Asu",["негазированная","газсыз","still"],1.5,"l",260],["water","Tassay",["негазированная","газсыз","still"],5,"l",690],
+ ["cola","Coca-Cola","",1,"l",560],["cola","Coca-Cola","",2,"l",890],["cola","Pepsi","",1,"l",520],
+ ["juice","Da-Da",["яблочный","алма","apple"],1,"l",720],["juice","Gracio",["апельсиновый","апельсин","orange"],1,"l",780],
+ ["tea","Пиала",["в пакетиках","пакеттелген","tea bags"],100,"bag",1550],["tea","Пиала",["гранулированный","түйіршікті","granulated"],250,"g",1600],["tea","Alokozay",["в пакетиках","пакеттелген","tea bags"],100,"bag",1700],
+ ["coffee","Jacobs","Monarch",95,"g",3450],["coffee","Jacobs","Monarch",190,"g",6300],["coffee","Nescafé","Gold",95,"g",3300],
+ ["kumys","","",1,"l",1400],
+ ["pelmeni","Первомайские деликатесы",["говяжьи","сиыр етінен","beef"],800,"g",2250],["pelmeni","",["домашние","үй","homemade"],900,"g",2100],
+ ["icecream","Шин-Лайн",["пломбир","пломбир","plombir"],80,"g",430],["icecream","Шин-Лайн",["пломбир","пломбир","plombir"],450,"g",1500],
+ ["vegmix","Hortex",["мексиканская","мексикалық","Mexican"],400,"g",1100],["vegmix","",["весенняя","көктемгі","spring"],400,"g",850],
+ ["manty","",["с говядиной","сиыр етімен","beef"],1,"kg",2900],
+ ["choco","Рахат","",100,"g",880],["choco","Казахстан","",100,"g",950],["choco","Alpen Gold","",85,"g",650],["choco","Milka","",90,"g",980],
+ ["candy","Баян Сулу",["ассорти","ассорти","assorted"],1,"kg",3200],["candy","Рахат",["ассорти","ассорти","assorted"],1,"kg",3900],
+ ["honey","",["горный","тау балы","mountain"],500,"g",2300],
+ ["diapers","Pampers","Active Baby 3 (6–10 kg)",60,"pcs",9400],["diapers","Pampers","Active Baby 4 (9–14 kg)",52,"pcs",9600],
+ ["diapers","Huggies","Classic 4 (7–18 kg)",50,"pcs",7400],["diapers","Merries","L (9–14 kg)",44,"pcs",9900],
+ ["formula","Nutrilon","1",800,"g",11200],["formula","NAN","Optipro 1",800,"g",12500],["formula","Малютка","1",600,"g",5200],
+ ["puree","Агуша",["яблоко","алма","apple"],90,"g",360],["puree","Gerber",["груша","алмұрт","pear"],80,"g",420],
+ ["wipes","Pampers","Sensitive",52,"pcs",1450],["wipes","Huggies","Natural Care",56,"pcs",1250],["wipes","Smile","Baby",72,"pcs",820],
+ ["porridge","Nestlé",["гречневая","қарақұмық","buckwheat"],200,"g",1450],["porridge","Heinz",["овсяная","сұлы","oat"],200,"g",1250],
+ ["trashbags","Paclan","60 l",20,"pcs",690],["trashbags","Paclan","120 l",10,"pcs",890],
+ ["sponge","Paclan","",5,"pcs",420],["sponge","York","",10,"pcs",790],
+ ["foil","Paclan","",10,"m",880],["foil","Paclan","",20,"m",1500],
+ ["tp","Zewa","Plus",8,"roll",1850],["tp","Papia","",4,"roll",1200],["tp","Мягкий знак","",12,"roll",1900],
+ ["towels","Zewa","",2,"roll",790],
+ ["powder","Tide",["автомат","автомат","automatic"],3,"kg",4600],["powder","Tide",["автомат","автомат","automatic"],450,"g",890],
+ ["powder","Ariel",["автомат","автомат","automatic"],3,"kg",5100],["powder","Persil",["автомат","автомат","automatic"],3,"kg",5400],["powder","Миф",["автомат","автомат","automatic"],2,"kg",2100],
+ ["caps","Ariel","Pods",30,"pcs",6100],["caps","Persil","Power Caps",28,"pcs",5900],["caps","Tide","",23,"pcs",4300],
+ ["dish","Fairy",["лимон","лимон","lemon"],450,"ml",790],["dish","Fairy",["лимон","лимон","lemon"],900,"ml",1390],["dish","AOS","",900,"ml",1050],["dish","Sorti","",450,"ml",520],
+ ["cleaner","Domestos","",1,"l",1320],["cleaner","Domestos","",500,"ml",790],["cleaner","Comet",["гель","гель","gel"],500,"ml",820],["cleaner","Санокс","",750,"ml",650],
+ ["hsoap","","72%",200,"g",240],
+ ["softener","Lenor","",1,"l",1750],["softener","Lenor","",2,"l",3100],["softener","Comfort","",1,"l",1650],
+ ["cream","Nivea","Creme",150,"ml",2200],["cream","Nivea","Soft",200,"ml",2400],["cream","Чистая линия","",40,"ml",990],
+ ["shampoo","Head & Shoulders","",400,"ml",3250],["shampoo","Pantene","",400,"ml",2950],["shampoo","Clear","",380,"ml",2800],["shampoo","Чистая линия","",400,"ml",1100],
+ ["mascara","Maybelline","Lash Sensational",1,"pcs",4500],["mascara","L'Oréal","Volume Million Lashes",1,"pcs",5200],["mascara","Essence","",1,"pcs",1900],
+ ["micellar","Garnier","",400,"ml",2550],["micellar","Garnier","",700,"ml",3900],["micellar","Nivea","",400,"ml",2600],
+ ["balm","Pantene","",360,"ml",2700],["balm","Gliss Kur","",360,"ml",2600],
+ ["paste","Colgate","Total",100,"ml",920],["paste","Blend-a-med","",100,"ml",850],["paste","Splat","",100,"ml",1300],["paste","Новый жемчуг","",100,"ml",520],
+ ["brush","Colgate",["средней жёсткости","орташа қатты","medium"],1,"pcs",780],["brush","Oral-B",["средней жёсткости","орташа қатты","medium"],1,"pcs",1150],
+ ["deo","Rexona","Men",150,"ml",1850],["deo","Rexona","",150,"ml",1850],["deo","Nivea","",150,"ml",1750],["deo","Old Spice","",150,"ml",2300],
+ ["pads","Always","Ultra Normal",10,"pcs",1420],["pads","Kotex","Normal",10,"pcs",1150],["pads","Naturella","Normal",10,"pcs",1250],
+ ["razor","Gillette","Mach3",1,"pcs",5600],["razor","Gillette","Blue II",5,"pcs",1400],
+ ["lsoap","Dove","",250,"ml",1350],["lsoap","Palmolive","",300,"ml",990],["lsoap","Fa","",250,"ml",850],
+ ["towel","","50×90 cm",1,"pcs",3400],["towel","","70×140 cm",1,"pcs",5900],
+ ["containers","Idea","",3,"pcs",1950],["containers","Lock&Lock","",3,"pcs",6900],
+ ["pan","Tefal","26 cm",1,"pcs",12500],["pan","Tefal","24 cm",1,"pcs",10900],["pan","Kukmara","26 cm",1,"pcs",7900],
+ ["bulb","Philips","E27 10W",1,"pcs",890],["bulb","Navigator","E27 10W",1,"pcs",620],
+ ["plaid","",["флис 150×200","флис 150×200","fleece 150×200"],1,"pcs",6900],
+ ["ball","Kelme","№5",1,"pcs",8900],["ball","Torres","№5",1,"pcs",6200],
+ ["yoga","Torres","6 mm",1,"pcs",5400],["yoga","Demix","4 mm",1,"pcs",4200],
+ ["grill","","",1,"pcs",8900],
+ ["thermos","Stanley","",750,"ml",24900],["thermos","Biostal","",750,"ml",6600],
+ ["dumbbell","","2×5 kg",1,"pcs",14500],["dumbbell","","2×10 kg",1,"pcs",24900],
+ ["coal","","",3,"kg",1600],["coal","","",5,"kg",2400],
+ ["tent","Outventure",["2-местная","2 орындық","2-person"],1,"pcs",24000],
+ ["catfood","Whiskas",["влажный","ылғал","wet"],75,"g",340],["catfood","Felix",["влажный","ылғал","wet"],75,"g",330],
+ ["catfood","Whiskas",["сухой","құрғақ","dry"],1.9,"kg",4900],["catfood","Purina One",["сухой","құрғақ","dry"],750,"g",3600],
+ ["dogfood","Pedigree",["сухой","құрғақ","dry"],2.2,"kg",5600],["dogfood","Chappi",["сухой","құрғақ","dry"],2.5,"kg",4300],
+ ["litter","Барсик",["впитывающий","сіңіргіш","absorbent"],5,"kg",2500],
+ ["notebook","Hatber",["48 листов","48 парақ","48 sheets"],1,"pcs",260],["notebook","Hatber",["96 листов","96 парақ","96 sheets"],1,"pcs",450],
+ ["pens","Erich Krause","",10,"pcs",1250],["pens","BIC","",4,"pcs",900],
+ ["paper","SvetoCopy","",500,"sheet",3300],["paper","Double A","",500,"sheet",4200],
+ ["backpack","Erich Krause","",1,"pcs",14000],["backpack","Brauberg","",1,"pcs",12500],
+ ["kettle","Tefal","1,7 l",1,"pcs",12400],["kettle","Philips","1,7 l",1,"pcs",14900],["kettle","Scarlett","1,7 l",1,"pcs",6900],
+ ["dryer","Philips","2000 W",1,"pcs",15500],["dryer","Rowenta","2100 W",1,"pcs",19900],
+ ["blender","Bosch","600 W",1,"pcs",19900],["blender","Philips","650 W",1,"pcs",21900],
+ ["batteries","Duracell","",4,"pcs",1350],["batteries","GP","",4,"pcs",890],["batteries","Energizer","",4,"pcs",1250],
+ ["plaster","Hansaplast","",20,"pcs",1100],["plaster","","",20,"pcs",520],
+ ["cotton","Я Самая","",100,"pcs",520],["cotton","Ola","",80,"pcs",460],
+ ["masks","","",10,"pcs",580],["masks","","",50,"pcs",1900],
+ ["peroxide","","",100,"ml",310],
+ ["thermo","Omron","",1,"pcs",3900]
+];
+
+/* Детерминированный генератор: цены стабильны между заходами */
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function rnd(s){let x=hash(s);x^=x<<13;x^=x>>>17;x^=x<<5;return ((x>>>0)%10000)/10000}
+function roundP(v){return v>=1000?Math.round(v/10)*10:Math.round(v/5)*5}
+
+const PRODUCTS = V.map((r,i)=>{
+  const [type,brand,attr,qty,unit,base]=r;
+  const id="p"+i, ty=TYPES[type];
+  const prices={};
+  STORES.forEach(s=>{
+    const key=id+type+s.id;
+    if(rnd(key+"a")>s.avail) return;
+    let p=roundP(base*s.k*(0.93+rnd(key+"p")*0.14)), old=null;
+    if(rnd(key+"s")<0.11){ old=p; p=roundP(p*(1-(0.10+rnd(key+"d")*0.25))); }
+    prices[s.id]={price:p,old};
+  });
+  STORES.forEach(s=>{ if(Object.keys(prices).length<4 && !prices[s.id]) prices[s.id]={price:roundP(base*s.k),old:null}; });
+  const attrs=Array.isArray(attr)?attr:[attr,attr,attr];
+  const hay=[ty[1],ty[2],ty[3],brand,...attrs].join(" ").toLowerCase();
+  return {id,type,cat:ty[0],emoji:ty[4],brand,attr:attrs,qty,unit,base,prices,hay};
+});
+const PROD = Object.fromEntries(PRODUCTS.map(p=>[p.id,p]));
+
+/* ================= ХРАНИЛИЩЕ И СОСТОЯНИЕ ================= */
+function load(k,def){try{const v=localStorage.getItem(k);return v?JSON.parse(v):def}catch(e){return def}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+
+let L = load("gd_lang","ru"); if(!I18N[L]) L="ru";
+const rawCart = load("gd_cart2",{});
+const cart = {};
+for(const [pid,it] of Object.entries(rawCart||{})){
+  if(PROD[pid] && it && it.q>0 && PROD[pid].prices[it.s]) cart[pid]={q:it.q|0,s:it.s};
+}
+const state = {
+  view: load("gd_view","catalog"),
+  storeId: null,
+  cat: "all", brand: null, q: "", sort: "cheap", onlyPromo: false,
+  layout: "list",
+  stores: new Set((load("gd_stores",STORES.map(s=>s.id))||[]).filter(id=>STORE[id])),
+  cart, fav: new Set((load("gd_fav",[])||[]).filter(id=>PROD[id])),
+  orders: load("gd_orders",[]) || [],
+  co: null
+};
+if(!["catalog","promo","stores","cart","fav"].includes(state.view)) state.view="catalog";
+if(state.stores.size===0) STORES.forEach(s=>state.stores.add(s.id));
+
+/* ================= УТИЛИТЫ ================= */
+function t(k,v){let s=I18N[L][k]; if(s===undefined) s=I18N.ru[k]; if(typeof s==="string"&&v) s=s.replace(/\{(\w+)\}/g,(_,x)=>v[x]??""); return s;}
+function pl(n,k){const f=I18N[L][k]; if(L==="ru"){const a=Math.abs(n)%100,b=a%10; if(a>10&&a<20)return f[2]; if(b>1&&b<5)return f[1]; if(b===1)return f[0]; return f[2];} if(L==="en") return n===1?f[0]:f[1]; return f[0];}
+function nf(n){return new Intl.NumberFormat(LOC[L]).format(n)}
+function fmt(n){return nf(Math.round(n))+"\u00a0₸"}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function dec(s){return L==="en"?s:s.replace(/(\d)\.(\d)/g,"$1,$2")}
+function locUnits(s){ // единицы внутри характеристик: "60 l", "26 cm", "2000 W"
+  if(L==="en") return s.replace(/(\d),(\d)/g,"$1.$2");
+  const m=L==="kk"?{l:"л",cm:"см",mm:"мм",W:"Вт",kg:"кг"}:{l:"л",cm:"см",mm:"мм",W:"Вт",kg:"кг"};
+  return s.replace(/(\d)\s(l|cm|mm|W|kg)\b/g,(_,d,u)=>d+" "+m[u]);
+}
+const catName=c=>CAT[c].n[LI[L]];
+function pTitle(p){const a=p.attr[LI[L]]; return TYPES[p.type][LI[L]+1]+(a?" "+locUnits(a):"")}
+function pFull(p){const a=p.attr[LI[L]]; return [TYPES[p.type][LI[L]+1],p.brand,a?locUnits(a):""].filter(Boolean).join(" ")}
+function pQty(p){return dec(String(p.qty))+"\u00a0"+t("u_"+p.unit)}
+function metaTags(p,sale){
+  return `<span class="meta">${p.brand?`<span class="brand-tag">${esc(p.brand)}</span>`:""}<span class="qty-tag">${pQty(p)}</span>${sale?`<span class="sale-tag">−${sale}%</span>`:""}</span>`;
+}
+
+function offers(p,all){
+  return Object.entries(p.prices).filter(([sid])=>all||state.stores.has(sid)).map(([sid,o])=>({sid,...o})).sort((a,b)=>a.price-b.price);
+}
+function stats(p){
+  const o=offers(p); if(!o.length) return null;
+  const min=o[0].price,max=o[o.length-1].price;
+  const promo=o.filter(x=>x.old).sort((a,b)=>(b.old-b.price)/b.old-(a.old-a.price)/a.old)[0]||null;
+  return {o,min,max,best:o[0],diff:max-min,promo,salePct:promo?Math.round((promo.old-promo.price)/promo.old*100):0};
+}
+function cheapestSid(p){const s=stats(p); return s?s.best.sid:offers(p,true)[0].sid}
+function history(p){
+  const s=stats(p), now=s?s.min:p.base, pts=[];
+  for(let i=0;i<8;i++) pts.push(i===7?now:roundP(now*(1+(rnd(p.id+"h"+i)-0.45)*0.14)));
+  return pts;
+}
+function promoEnd(){const d=new Date(); d.setDate(d.getDate()+((7-d.getDay())%7||7)); return fdate(d,{day:1,month:"long"})}
+const cartQty=pid=>state.cart[pid]?.q||0;
+const itemPrice=(pid)=>{const it=state.cart[pid]; return PROD[pid].prices[it.s].price};
+function storeGroups(){
+  const g={};
+  for(const pid of Object.keys(state.cart)){ const s=state.cart[pid].s; (g[s]=g[s]||[]).push(pid); }
+  return g;
+}
+function storeSub(sid,pids){return pids.reduce((a,pid)=>a+itemPrice(pid)*state.cart[pid].q,0)}
+function feeFor(sid,sub,mode){const s=STORE[sid]; if(mode==="pickup"&&s.pickup) return 0; if(!s.fee||sub>=s.freeFrom) return 0; return s.fee}
+function persist(){save("gd_cart2",state.cart);save("gd_fav",[...state.fav]);save("gd_stores",[...state.stores]);save("gd_view",state.view);save("gd_orders",state.orders)}
+
+/* ================= ОТРИСОВКА: КАТАЛОГ ================= */
+const main=document.getElementById("main"), hero=document.getElementById("hero");
+
+function row(p, sid){
+  let right;
+  if(sid){
+    const o=p.prices[sid];
+    const sale=o.old?Math.round((o.old-o.price)/o.old*100):0;
+    right=`<span class="rp"><span class="price num">${fmt(o.price)}</span>${o.old?`<small class="num" style="text-decoration:line-through;color:var(--muted)">${fmt(o.old)}</small>`:""}</span>`;
+    const q=state.cart[p.id]&&state.cart[p.id].s===sid?state.cart[p.id].q:0;
+    return `<div class="row">
+      <button class="row-open" data-open="${p.id}"><span class="pic sm" style="background:${CAT[p.cat].tint}" aria-hidden="true">${p.emoji}</span>
+        <span class="rt"><b>${esc(pTitle(p))}</b>${metaTags(p,sale)}</span></button>
+      <span class="rr">${right}<button class="add-sm ${q?"in":""}" data-addfrom="${p.id}|${sid}" aria-label="${esc(t("addFrom",{s:STORE[sid].name}))}">${q||"+"}</button></span>
+    </div>`;
+  }
+  const s=stats(p), q=cartQty(p.id);
+  right=s?`<span class="rp"><span class="price num">${fmt(s.min)}</span><span class="where">${STORE[s.best.sid].name}</span></span>`:`<small style="color:var(--muted);max-width:90px;text-align:right">${t("notInSelected")}</small>`;
+  return `<div class="row">
+    <button class="row-open" data-open="${p.id}"><span class="pic sm" style="background:${CAT[p.cat].tint}" aria-hidden="true">${p.emoji}</span>
+      <span class="rt"><b>${esc(pTitle(p))}</b>${metaTags(p,s?s.salePct:0)}</span></button>
+    <span class="rr">${right}<button class="add-sm ${q?"in":""}" data-add="${p.id}" aria-label="${esc(t("toCart"))}">${q||"+"}</button></span>
+  </div>`;
+}
+
+function card(p, extra=""){
+  const s=stats(p), q=cartQty(p.id), fav=state.fav.has(p.id);
+  let body;
+  if(!s) body=`<div class="range">${t("notInSelected")}</div>`;
+  else{
+    const dots=s.o.map(x=>{const pos=s.max===s.min?50:((x.price-s.min)/(s.max-s.min))*100;
+      return `<i style="left:${pos}%;background:${STORE[x.sid].color}" title="${STORE[x.sid].name}: ${fmt(x.price)}"></i>`}).join("");
+    body=`<div class="best"><span class="price num">${fmt(s.min)}</span><span class="where">${STORE[s.best.sid].name}</span></div>
+      <div class="range num">${s.o.length>1?t("upTo",{x:fmt(s.max),y:fmt(s.diff)}):t("oneStore")}</div>${extra}
+      <div class="strip" aria-hidden="true">${dots}</div>`;
+  }
+  return `<article class="card">
+    ${s&&s.promo?`<span class="sale-tag">−${s.salePct}%</span>`:""}
+    <button class="fav" data-fav="${p.id}" aria-pressed="${fav}" aria-label="${esc(fav?t("favRemove"):t("favAdd"))}">${fav?"♥":"♡"}</button>
+    <button class="card-open" data-open="${p.id}">
+      <div class="pic" style="background:${CAT[p.cat].tint}" aria-hidden="true">${p.emoji}</div>
+      <h3>${esc(pTitle(p))}</h3>${metaTags(p,0)}${body}
+    </button>
+    <button class="add ${q?"in":""}" data-add="${p.id}">${q?t("inCart",{n:q}):t("toCart")}</button>
+  </article>`;
+}
+
+function filtered(){
+  const q=state.q.trim().toLowerCase();
+  let list=PRODUCTS.filter(p=>(state.cat==="all"||p.cat===state.cat)&&(!state.brand||p.brand===state.brand)&&(!q||p.hay.includes(q)||catName(p.cat).toLowerCase().includes(q)));
+  if(state.onlyPromo) list=list.filter(p=>{const s=stats(p);return s&&s.promo});
+  const mn=p=>stats(p)?.min, sorters={
+    cheap:(a,b)=>(mn(a)??1e9)-(mn(b)??1e9),
+    expensive:(a,b)=>(mn(b)??0)-(mn(a)??0),
+    saving:(a,b)=>((stats(b)?.diff??0)/(stats(b)?.max||1))-((stats(a)?.diff??0)/(stats(a)?.max||1)),
+    name:(a,b)=>pFull(a).localeCompare(pFull(b),LOC[L])
+  };
+  return list.sort(sorters[state.sort]);
+}
+
+function renderCatalog(){
+  const list=filtered();
+  const chips=CATS.map(c=>`<button class="chip" data-cat="${c.id}" aria-pressed="${state.cat===c.id}"><span class="ic" aria-hidden="true">${c.ic}</span>${catName(c.id)}</button>`).join("");
+  let brandChips="";
+  if(state.cat!=="all"){
+    const brands=[...new Set(PRODUCTS.filter(p=>p.cat===state.cat&&p.brand).map(p=>p.brand))].sort((a,b)=>a.localeCompare(b));
+    if(brands.length>1) brandChips=`<div class="cats brands" role="group">
+      <button class="chip" data-brand="" aria-pressed="${!state.brand}">${t("allBrands")}</button>
+      ${brands.map(b=>`<button class="chip" data-brand="${esc(b)}" aria-pressed="${state.brand===b}">${esc(b)}</button>`).join("")}</div>`;
+  }
+  const storeBtns=STORES.map(s=>`<button class="sbtn" data-store="${s.id}" aria-pressed="${state.stores.has(s.id)}"><span class="dot" style="background:${s.color}"></span>${s.name}</button>`).join("");
+
+  let content;
+  if(!list.length){
+    content=`<div class="empty"><b>${t("nothingT")}</b>${t("nothingX")}<br><button class="tbtn" data-reset>${t("resetFilters")}</button></div>`;
+  }else if(state.layout==="grid"){
+    content=`<div class="grid">${list.map(p=>card(p)).join("")}</div>`;
+  }else if(state.cat==="all"){
+    content=CATS.filter(c=>c.id!=="all").map(c=>{
+      const g=list.filter(p=>p.cat===c.id); if(!g.length) return "";
+      return `<div class="group"><span aria-hidden="true">${c.ic}</span>${catName(c.id)}<small>${g.length}</small></div><div class="rows">${g.map(p=>row(p)).join("")}</div>`;
+    }).join("");
+  }else{
+    content=`<div class="rows">${list.map(p=>row(p)).join("")}</div>`;
+  }
+
+  main.innerHTML=`
+    <div class="cats" role="group">${chips}</div>
+    ${brandChips}
+    <div class="toolbar">
+      <select id="sort">
+        <option value="cheap">${t("sortCheap")}</option><option value="expensive">${t("sortExp")}</option>
+        <option value="saving">${t("sortSave")}</option><option value="name">${t("sortName")}</option>
+      </select>
+      <div class="seg" role="group">
+        <button data-layout="list" aria-pressed="${state.layout==="list"}">☰ ${t("viewList")}</button>
+        <button data-layout="grid" aria-pressed="${state.layout==="grid"}">▦ ${t("viewGrid")}</button>
+      </div>
+      <button class="tbtn" id="promoBtn" aria-pressed="${state.onlyPromo}">🔥 ${t("onlyPromo")}</button>
+      <span class="count">${nf(list.length)} ${pl(list.length,"items")}</span>
+      <details class="stores" ${state.detailsOpen?"open":""}>
+        <summary>${t("storesCount",{n:state.stores.size,m:STORES.length})}</summary>
+        <div class="store-grid">${storeBtns}<button class="sbtn" data-store-all>${t("selectAll")}</button></div>
+      </details>
+    </div>
+    ${content}`;
+  main.querySelector("#sort").value=state.sort;
+  main.querySelector("details.stores").addEventListener("toggle",e=>state.detailsOpen=e.target.open);
+}
+
+/* ================= АКЦИИ ================= */
+function renderPromo(){
+  const items=[];
+  PRODUCTS.forEach(p=>offers(p).forEach(o=>{if(o.old) items.push({p,o,d:Math.round((o.old-o.price)/o.old*100)})}));
+  items.sort((a,b)=>b.d-a.d);
+  main.innerHTML=`<h2 class="sec">${t("promoTitle")}</h2><p class="sec-sub">${t("promoSub",{d:promoEnd()})}</p>
+    ${items.length?`<div class="rows">${items.map(({p,o})=>row(p,o.sid).replace('<span class="rp">',`<span class="rp"><span class="where"><span class="dot" style="background:${STORE[o.sid].color}"></span> ${STORE[o.sid].name}</span>`)).join("")}</div>`
+    :`<div class="empty">${t("promoNone")}</div>`}`;
+}
+
+/* ================= ИЗБРАННОЕ ================= */
+function renderFav(){
+  const list=PRODUCTS.filter(p=>state.fav.has(p.id));
+  if(!list.length){
+    main.innerHTML=`<h2 class="sec">${t("favTitle")}</h2><div class="empty"><b>${t("favEmptyT")}</b>${t("favEmptyX")}<br><button class="tbtn" data-go="catalog">${t("openCatalog")}</button></div>`;
+    return;
+  }
+  main.innerHTML=`<h2 class="sec">${t("favTitle")}</h2><p class="sec-sub">${t("favSub")}</p>
+    <div class="grid">${list.map(p=>{
+      const h=history(p), ch=h[7]-h[3], pct=Math.round(ch/h[3]*100);
+      const tr=ch===0?`<div class="range">${t("noChange")}</div>`:ch>0?`<div class="range" style="color:var(--peach-ink);font-weight:600">▲ +${pct}% ${t("trendMonth")}</div>`:`<div class="range" style="color:var(--mint-ink);font-weight:600">▼ ${pct}% ${t("trendMonth")}</div>`;
+      return card(p,tr);
+    }).join("")}</div>`;
+}
+
+/* ================= КОРЗИНА ================= */
+function cartItemHTML(pid){
+  const p=PROD[pid], it=state.cart[pid];
+  const opts=offers(p,true).map(o=>`<option value="${o.sid}" ${o.sid===it.s?"selected":""}>${STORE[o.sid].name} — ${fmt(o.price)}</option>`).join("");
+  return `<div class="ci">
+    <span class="pic sm" style="background:${CAT[p.cat].tint}" aria-hidden="true">${p.emoji}</span>
+    <div class="t"><div class="tl"><b>${esc(pFull(p))}</b><span class="lsum num">${fmt(itemPrice(pid)*it.q)}</span></div>
+      <small style="color:var(--muted)">${pQty(p)}</small>
+      <div class="ctl"><select data-setstore="${pid}" aria-label="${t("storeLbl")}">${opts}</select>
+      <div class="qty"><button data-dec="${pid}" aria-label="−">−</button><span class="num">${it.q}</span><button data-inc="${pid}" aria-label="+">+</button></div></div>
+    </div>
+  </div>`;
+}
+function ordersHTML(){
+  if(!state.orders.length) return "";
+  return `<section class="panel"><h3>${t("ordersT")}</h3>${state.orders.slice(0,8).map(o=>`
+    <div class="order-item"><div><b>${t("orderNo",{n:o.no})}</b><small>${fdate(new Date(o.ts),{day:1,month:"short",time:1})}, ${o.stores.map(s=>STORE[s]?.name||s).join(", ")}</small><small>${esc(o.when)}</small></div>
+    <div style="text-align:right"><b class="num">${fmt(o.total)}</b><br><span class="status">${t("statusNew")}</span></div></div>`).join("")}</section>`;
+}
+function renderCart(){
+  const pids=Object.keys(state.cart);
+  if(!pids.length){
+    main.innerHTML=`<h2 class="sec">${t("cartTitle")}</h2><div class="empty"><b>${t("cartEmptyT")}</b>${t("cartEmptyX")}<br><button class="tbtn" data-go="catalog">${t("openCatalog")}</button></div><div style="margin-top:14px">${ordersHTML()}</div>`;
+    return;
+  }
+  const groups=storeGroups();
+  const count=pids.reduce((a,id)=>a+state.cart[id].q,0);
+  let goods=0, fees=0;
+  const groupHTML=Object.entries(groups).map(([sid,ids])=>{
+    const sub=storeSub(sid,ids); goods+=sub; fees+=feeFor(sid,sub,"delivery");
+    return `<section class="panel"><div class="sgroup-h"><span class="dot" style="background:${STORE[sid].color}"></span>${STORE[sid].name}<span class="sum num">${fmt(sub)}</span></div>${ids.map(cartItemHTML).join("")}</section>`;
+  }).join("");
+
+  // весь список в одном магазине
+  const totals=STORES.filter(s=>state.stores.has(s.id)).map(s=>{
+    let sum=0,miss=0; pids.forEach(id=>{const o=PROD[id].prices[s.id]; if(o) sum+=o.price*state.cart[id].q; else miss++;});
+    return {s,sum,miss};
+  }).sort((a,b)=>a.miss-b.miss||a.sum-b.sum);
+  const full=totals.filter(x=>!x.miss), win=full[0], maxSum=Math.max(...totals.map(x=>x.sum),1);
+  // оптимально
+  let opt=0; pids.forEach(id=>opt+=stats(PROD[id])?.min*state.cart[id].q||0);
+  const canOpt=pids.some(id=>{const s=stats(PROD[id]); return s&&PROD[id].prices[state.cart[id].s].price>s.min});
+
+  main.innerHTML=`
+    <h2 class="sec">${t("cartTitle")}</h2>
+    <p class="sec-sub">${nf(count)} ${pl(count,"items")}. <button class="clear" data-clear>${t("clearCart")}</button></p>
+    <div class="two">
+      <div>${groupHTML}</div>
+      <div>
+        <section class="panel">
+          <h3>${t("summaryT")}</h3>
+          <div class="lines">
+            <div><span>${t("goods")}</span><b class="num">${fmt(goods)}</b></div>
+            <div><span>${t("delivery")}</span><b class="num">${fees?fmt(fees):t("free")}</b></div>
+            <div class="grand"><span>${t("total")}</span><span class="num">${fmt(goods+fees)}</span></div>
+          </div>
+          <div class="sh-actions"><button class="btn pri" data-checkout="all">${t("checkout")}</button></div>
+        </section>
+        <section class="panel">
+          <h3>${t("cheapestT")}</h3>
+          <p>${win?t("cheapestWin",{s:`<b style="color:var(--mint-ink)">${win.s.name}</b>`,x:fmt(win.sum)})+(full.length>1?" "+t("cheaperBy",{x:fmt(full[full.length-1].sum-win.sum)}):""):t("noneFull")}</p>
+          <div class="ladder">${totals.map(x=>`
+            <div class="rung total-rung ${win&&x.s.id===win.s.id?"win":""} ${x.miss?"na":""}">
+              <span class="nm"><span class="dot" style="background:${x.s.color}"></span>${x.s.name}</span>
+              <div class="bar"><span style="width:${Math.max(8,x.sum/maxSum*100)}%"></span></div>
+              <span class="pr num">${fmt(x.sum)}${x.miss?`<span class="miss">${t("missing",{n:x.miss})}</span>`:""}</span>
+              <button class="take" data-moveall="${x.s.id}" ${x.miss?"disabled":""}>${t("takeHere")}</button>
+            </div>`).join("")}</div>
+        </section>
+        <section class="panel">
+          <h3>${t("optT")}</h3>
+          <p>${canOpt?t("optX")+" "+t("optSave",{x:fmt(goods-opt)}):t("optDone")}</p>
+          <div class="bigsum num">${fmt(opt)}</div>
+          ${canOpt?`<div class="sh-actions"><button class="btn sec" data-optimize>${t("optBtn")}</button></div>`:""}
+        </section>
+        ${ordersHTML()}
+      </div>
+    </div>`;
+}
+
+/* ================= МАГАЗИНЫ ================= */
+function storeAv(s){return `<span class="store-av" style="background:${s.color}" aria-hidden="true">${s.name[0]}</span>`}
+function delivText(s){return s.fee?t("delivInfo",{fee:fmt(s.fee),min:fmt(s.freeFrom)}):t("delivFree")}
+function renderStores(){
+  const groups=storeGroups(), pids=Object.keys(state.cart);
+  main.innerHTML=`<h2 class="sec">${t("storesTitle")}</h2><p class="sec-sub">${t("storesSub")}</p>
+  <div class="store-cards">${STORES.map(s=>{
+    const ids=groups[s.id]||[], n=ids.reduce((a,id)=>a+state.cart[id].q,0);
+    let listLine="";
+    if(pids.length){
+      let sum=0,miss=0; pids.forEach(id=>{const o=PROD[id].prices[s.id]; if(o) sum+=o.price*state.cart[id].q; else miss++;});
+      listLine=`<small>${miss?t("listMissing",{n:miss}):t("listTotal",{x:fmt(sum)})}</small>`;
+    }
+    return `<button class="store-card" data-storeopen="${s.id}">
+      <span class="hd">${storeAv(s)}${s.name}<span class="cnt ${n?"":"zero"}">${n?t("picked",{n}):"0"}</span></span>
+      <small>${n?`<b class="num" style="color:var(--ink)">${fmt(storeSub(s.id,ids))}</b>`:t("pickedNone")}</small>
+      ${listLine}
+      <small>🚚 ${delivText(s)}${s.pickup?"":`, ${t("onlyDelivery")}`}</small>
+    </button>`;
+  }).join("")}</div>`;
+}
+function renderStore(){
+  const s=STORE[state.storeId], ids=storeGroups()[s.id]||[];
+  const sub=storeSub(s.id,ids), fee=feeFor(s.id,sub,"delivery");
+  main.innerHTML=`<button class="back" data-view="stores">← ${t("back")}</button>
+    <div class="store-hero">${storeAv(s)}<div><h2>${s.name}</h2><small style="color:var(--muted)">🚚 ${delivText(s)}${s.pickup?"":`, ${t("onlyDelivery")}`}</small></div></div>
+    <div class="two" style="margin-top:14px">
+      <section class="panel">
+        <h3>${t("yourPicks")}</h3>
+        ${ids.length?`${ids.map(cartItemHTML).join("")}
+          <div class="lines" style="margin-top:10px">
+            <div><span>${t("goods")}</span><b class="num">${fmt(sub)}</b></div>
+            <div><span>${t("delivery")}</span><b class="num">${fee?fmt(fee):t("free")}</b></div>
+            <div class="grand"><span>${t("total")}</span><span class="num">${fmt(sub+fee)}</span></div>
+          </div>
+          <div class="sh-actions"><button class="btn pri" data-checkout="${s.id}">${t("orderHere",{s:s.name})}</button></div>`
+        :`<p>${t("pickedNone")}</p>`}
+      </section>
+      <section>
+        <h3 style="margin:0 0 8px">${t("storeGoods")}</h3>
+        <input class="inline-search" id="storeQ" type="search" placeholder="${esc(t("storeSearchPh"))}" value="${esc(state.storeQ||"")}">
+        <div class="rows" id="storeList" style="grid-template-columns:1fr"></div>
+      </section>
+    </div>`;
+  renderStoreList();
+}
+function renderStoreList(){
+  const box=document.getElementById("storeList"); if(!box) return;
+  const q=(state.storeQ||"").trim().toLowerCase(), sid=state.storeId;
+  const list=PRODUCTS.filter(p=>p.prices[sid]&&(!q||p.hay.includes(q)));
+  box.innerHTML=list.length?list.map(p=>row(p,sid)).join(""):`<div class="empty"><b>${t("nothingT")}</b></div>`;
+}
+
+/* ================= ОБЩИЙ РЕНДЕР ================= */
+function applyStatic(){
+  document.documentElement.lang=L==="kk"?"kk":L;
+  document.querySelectorAll("[data-i18n]").forEach(el=>el.textContent=t(el.dataset.i18n));
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>el.placeholder=t(el.dataset.i18nPh));
+  document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===L));
+  document.getElementById("themeBtn").setAttribute("aria-label",t("themeLbl"));
+  document.querySelector(".langs").setAttribute("aria-label",t("langLbl"));
+  document.title=t("logo")+": "+t("heroTitle");
+}
+function render(){
+  const tabView=state.view==="store"?"stores":state.view;
+  document.querySelectorAll(".tab").forEach(tb=>tb.setAttribute("aria-current",tb.dataset.view===tabView?"page":"false"));
+  hero.hidden=state.view!=="catalog";
+  ({catalog:renderCatalog,promo:renderPromo,stores:renderStores,store:renderStore,cart:renderCart,fav:renderFav})[state.view]();
+  const n=Object.values(state.cart).reduce((a,b)=>a+b.q,0);
+  const b=document.getElementById("cartBadge"); b.hidden=!n; b.textContent=n;
+}
+
+/* ================= КАРТОЧКА СРАВНЕНИЯ ================= */
+const sheet=document.getElementById("sheet"), scrim=document.getElementById("scrim");
+let lastFocus=null, openId=null;
+function chartSVG(pts){
+  const W=600,H=150,P=24, min=Math.min(...pts), max=Math.max(...pts), span=max-min||1;
+  const xy=pts.map((v,i)=>[P+i*(W-2*P)/(pts.length-1), H-P-(v-min)/span*(H-2*P)]);
+  const line=xy.map(p=>p.join(",")).join(" ");
+  const labels=[t("w8"),"","",t("w4"),"","","",t("now")];
+  return `<svg class="chart" viewBox="0 0 ${W} ${H+14}" role="img" aria-label="${esc(t("chartT"))}">
+    <polygon points="${P},${H-P} ${line} ${W-P},${H-P}" fill="var(--mint)" opacity=".7"/>
+    <polyline points="${line}" fill="none" stroke="var(--mint-strong)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    ${xy.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${i===7?6:3.5}" fill="${i===7?"var(--mint-strong)":"var(--surface)"}" stroke="var(--mint-strong)" stroke-width="2"/>`).join("")}
+    <text x="${xy[7][0]}" y="${Math.max(16,xy[7][1]-12)}" text-anchor="end" font-size="15" font-weight="700" fill="var(--ink)">${fmt(pts[7])}</text>
+    ${labels.map((l,i)=>l?`<text x="${xy[i][0]}" y="${H+10}" text-anchor="${i===0?"start":i===7?"end":"middle"}" font-size="13" fill="var(--muted)">${l}</text>`:"").join("")}
+  </svg>`;
+}
+function openSheet(id){
+  const p=PROD[id]; openId=id;
+  const all=offers(p,true), sel=all.filter(o=>state.stores.has(o.sid));
+  const min=sel.length?sel[0].price:0, max=all.length?all[all.length-1].price:1;
+  const missing=STORES.filter(s=>!p.prices[s.id]);
+  const h=history(p), q=cartQty(id), fav=state.fav.has(id);
+  sheet.setAttribute("aria-label",pFull(p));
+  sheet.innerHTML=`<div class="grab" aria-hidden="true"></div>
+    <div class="sh-head">
+      <div class="pic" style="background:${CAT[p.cat].tint}" aria-hidden="true">${p.emoji}</div>
+      <div><h3>${esc(pTitle(p))}</h3>${metaTags(p,0)}<div class="range">${catName(p.cat)}</div></div>
+      <button class="close" data-close aria-label="✕">✕</button>
+    </div>
+    <div class="sh-title">${t("pricesT")}</div>
+    <div class="ladder">
+      ${all.map(o=>{const off=!state.stores.has(o.sid);
+        return `<div class="rung ${!off&&o.price===min?"win":""} ${off?"na":""}">
+          <span class="nm"><span class="dot" style="background:${STORE[o.sid].color}"></span>${STORE[o.sid].name}</span>
+          <div class="bar"><span style="width:${Math.max(10,o.price/max*100)}%"></span></div>
+          <span class="pr num">${fmt(o.price)}${o.old?`<span class="old">${fmt(o.old)}</span>`:""}</span>
+          <button class="rung-add" data-addfrom="${id}|${o.sid}" aria-label="${esc(t("addFrom",{s:STORE[o.sid].name}))}">+</button>
+        </div>`}).join("")}
+      ${missing.map(s=>`<div class="rung na"><span class="nm"><span class="dot" style="background:${s.color}"></span>${s.name}</span><div class="bar"></div><span class="pr" style="font-weight:400;font-size:12px">${t("noStock")}</span><span></span></div>`).join("")}
+    </div>
+    ${sel.length>1&&sel[sel.length-1].price>min?`<div class="saving">${t("savingX",{a:STORE[sel[0].sid].name,x:fmt(sel[sel.length-1].price-min),b:STORE[sel[sel.length-1].sid].name})}</div>`:""}
+    <div class="sh-title">${t("chartT")}</div>
+    ${chartSVG(h)}
+    <div class="chart-cap">${t("chartCap",{a:fmt(Math.min(...h)),b:fmt(Math.max(...h))})}</div>
+    <div class="sh-actions">
+      <button class="btn sec" data-fav="${id}" aria-pressed="${fav}">${fav?"♥ "+t("inFav"):"♡ "+t("favAdd")}</button>
+      <button class="btn pri" data-add="${id}">${q?t("inCartMore",{n:q}):t("addCart")}</button>
+    </div>`;
+  if(!sheet.classList.contains("open")){
+    lastFocus=document.activeElement;
+    scrim.classList.add("open"); sheet.classList.add("open");
+    document.body.style.overflow="hidden";
+    sheet.querySelector("[data-close]").focus();
+  }
+}
+function closeSheet(){
+  sheet.classList.remove("open"); scrim.classList.remove("open");
+  document.body.style.overflow=""; openId=null;
+  if(lastFocus&&document.contains(lastFocus)) lastFocus.focus();
+}
+
+/* ================= ОФОРМЛЕНИЕ ЗАКАЗА ================= */
+const coEl=document.getElementById("co");
+const SLOTS=[9,11,13,15,17,19,21];
+const WALLETS=[
+  {id:"kaspi",name:"Kaspi Pay",bg:"#F6B3A6",ic:"K"},
+  {id:"halyk",name:"Halyk Pay (Homebank)",bg:"#A9DDC4",ic:"H"},
+  {id:"apple",name:"Apple Pay",bg:"#D5DBE3",ic:""},
+  {id:"google",name:"Google Pay",bg:"#BFD7F5",ic:"G"}
+];
+function startCheckout(scope){
+  const stores=scope==="all"?Object.keys(storeGroups()):[scope];
+  if(!stores.length) return;
+  const a=load("gd_addr",null);
+  state.co={step:1,scope,stores,no:String(100000+Math.floor(Math.random()*900000)),
+    mode:"delivery",city:0,street:"",house:"",apt:"",entrance:"",floor:"",comment:"",phone:"+7 ",
+    day:0,slot:null,pay:null,err:"",saved:a};
+  if(a&&a.phone) state.co.phone=a.phone;
+  if(sheet.classList.contains("open")) closeSheet();
+  coEl.classList.add("open"); document.body.style.overflow="hidden";
+  renderCo();
+}
+function closeCo(){coEl.classList.remove("open");document.body.style.overflow="";state.co=null;render();}
+function coGroups(){
+  const g=storeGroups(), co=state.co;
+  return co.stores.filter(s=>g[s]).map(sid=>{const ids=g[sid], sub=storeSub(sid,ids); return {sid,ids,sub,fee:feeFor(sid,sub,co.mode)}});
+}
+function needAddress(){const co=state.co; return co.mode==="delivery"||co.stores.some(s=>!STORE[s].pickup)}
+function dayDate(d){const x=new Date(); x.setDate(x.getDate()+d); return x}
+function dayLabel(d){ if(d===0) return t("today"); if(d===1) return t("tomorrow"); return fdate(dayDate(d),{weekday:1}); }
+function slotText(h){return `${String(h).padStart(2,"0")}:00–${String(h+2).padStart(2,"0")}:00`}
+function slotDisabled(d,h){return d===0 && h<=new Date().getHours()+1}
+function whenText(){const co=state.co; return `${fdate(dayDate(co.day),{day:1,month:"long"})}, ${slotText(co.slot)}`}
+function addrText(a){return [I18N[L].cities[a.city],a.street,a.house&&(L==="en"?"bldg ":L==="kk"?"үй ":"д. ")+a.house,a.apt&&(L==="en"?"apt ":L==="kk"?"пәтер ":"кв. ")+a.apt].filter(Boolean).join(", ")}
+function payName(id){return id==="card"?t("cardT"):WALLETS.find(w=>w.id===id)?.name}
+
+function renderCo(){
+  const co=state.co; if(!co) return;
+  const groups=coGroups();
+  if(!groups.length && co.step<4){closeCo();return;}
+  const goods=groups.reduce((a,g)=>a+g.sub,0), fees=groups.reduce((a,g)=>a+g.fee,0), total=goods+fees;
+  co.total=total;
+  const steps=[t("stepOrder"),t("stepDelivery"),t("stepPay")];
+  let body="", barBtn="";
+  if(co.step===1){
+    body=`${groups.map(g=>`<section class="panel">
+      <div class="sgroup-h"><span class="dot" style="background:${STORE[g.sid].color}"></span>${STORE[g.sid].name}<span class="sum num">${fmt(g.sub)}</span></div>
+      ${g.ids.map(pid=>{const p=PROD[pid],it=state.cart[pid];return `<div class="order-item"><div>${esc(pFull(p))}<small>${pQty(p)}, ${it.q} × ${fmt(itemPrice(pid))}</small></div><b class="num">${fmt(itemPrice(pid)*it.q)}</b></div>`}).join("")}
+      <div class="order-item"><span>${t("delivery")}</span><b class="num">${g.fee?fmt(g.fee):t("free")}</b></div>
+    </section>`).join("")}
+    <section class="panel"><div class="lines">
+      <div><span>${t("goods")}</span><b class="num">${fmt(goods)}</b></div>
+      <div><span>${t("delivery")}</span><b class="num">${fees?fmt(fees):t("free")}</b></div>
+      <div class="grand"><span>${t("total")}</span><span class="num">${fmt(total)}</span></div></div></section>`;
+    barBtn=`<button class="btn pri" data-co="next">${t("next")}</button>`;
+  }else if(co.step===2){
+    const cities=I18N[L].cities.map((c,i)=>`<option value="${i}" ${i==co.city?"selected":""}>${c}</option>`).join("");
+    const noPick=co.mode==="pickup"?co.stores.filter(s=>!STORE[s].pickup):[];
+    body=`<div class="modes">
+        <button class="opt" data-mode="delivery" aria-pressed="${co.mode==="delivery"}"><span class="oi">🚚</span><span><b>${t("modeDelivery")}</b><small>${t("modeDeliveryX")}</small></span></button>
+        <button class="opt" data-mode="pickup" aria-pressed="${co.mode==="pickup"}"><span class="oi">🏬</span><span><b>${t("modePickup")}</b><small>${t("modePickupX")}</small></span></button>
+      </div>
+      ${co.mode==="pickup"?`<div class="info">${t("pickupNote")}${noPick.map(s=>`<br>${t("noPickupNote",{s:STORE[s].name})}`).join("")}</div>`:""}
+      <section class="panel" style="margin-top:12px">
+        <h3 style="margin-bottom:10px">${needAddress()?t("addrT"):t("phone")}</h3>
+        ${needAddress()&&co.saved&&co.saved.street?`<button class="saved-addr" data-useaddr>📍 ${esc(t("savedAddr",{a:addrText(co.saved)}))}</button>`:""}
+        <div class="fields">
+          ${needAddress()?`
+          <label class="f full">${t("city")}<select data-f="city">${cities}</select></label>
+          <label class="f full">${t("street")}<input data-f="street" value="${esc(co.street)}" autocomplete="address-line1"></label>
+          <label class="f">${t("house")}<input data-f="house" value="${esc(co.house)}"></label>
+          <label class="f">${t("apt")}<input data-f="apt" value="${esc(co.apt)}" inputmode="numeric"></label>
+          <label class="f">${t("entrance")}<input data-f="entrance" value="${esc(co.entrance)}" inputmode="numeric"></label>
+          <label class="f">${t("floor")}<input data-f="floor" value="${esc(co.floor)}" inputmode="numeric"></label>
+          <label class="f full">${t("comment")}<textarea data-f="comment">${esc(co.comment)}</textarea></label>`
+          :`<label class="f full">${t("city")}<select data-f="city">${cities}</select></label>`}
+          <label class="f full">${t("phone")}<input data-f="phone" type="tel" inputmode="tel" value="${esc(co.phone)}" autocomplete="tel" placeholder="+7 (7__) ___-__-__"></label>
+        </div>
+      </section>
+      <section class="panel">
+        <h3 style="margin-bottom:10px">${t("timeT")}</h3>
+        <div class="days">${[0,1,2,3,4].map(d=>`<button class="chip" data-day="${d}" aria-pressed="${co.day===d}">${dayLabel(d)}<br><small>${fdate(dayDate(d),{day:1,month:"short"})}</small></button>`).join("")}</div>
+        <div class="slots">${SLOTS.map(h=>`<button class="slot num" data-slot="${h}" aria-pressed="${co.slot===h}" ${slotDisabled(co.day,h)?"disabled":""}>${slotText(h)}</button>`).join("")}</div>
+      </section>
+      ${co.err?`<div class="err" role="alert">${co.err}</div>`:""}`;
+    barBtn=`<button class="btn pri" data-co="next">${t("next")}</button>`;
+  }else if(co.step===3){
+    body=`<section class="panel"><div class="lines">
+        <div><span>${t("whenLbl")}</span><b>${esc(whenText())}</b></div>
+        <div><span>${t("whereLbl")}</span><b style="text-align:right">${esc(needAddress()?addrText(co):t("pickupAt"))}</b></div>
+      </div></section>
+      <h3 style="margin:18px 0 8px">${t("payT")}</h3>
+      <div class="pays">
+        <button class="opt" data-pay="card" aria-pressed="${co.pay==="card"}"><span class="w-ic" style="background:var(--lilac);color:var(--lilac-ink)">💳</span><span><b>${t("cardT")}</b><small>${t("cardX")}</small></span></button>
+      </div>
+      <h3 style="margin:18px 0 8px">${t("walletsT")}</h3>
+      <div class="pays">${WALLETS.map(w=>`<button class="opt" data-pay="${w.id}" aria-pressed="${co.pay===w.id}"><span class="w-ic" style="background:${w.bg};color:#2B3440">${w.ic||"◉"}</span><span><b>${w.name}</b></span></button>`).join("")}</div>
+      <div class="info">${t("demoPay")}</div>
+      ${co.err?`<div class="err" role="alert">${co.err}</div>`:""}`;
+    barBtn=`<button class="btn pri" data-co="pay">${t("payBtn",{x:fmt(total)})}</button>`;
+  }else{
+    const o=co.done;
+    body=`<div class="done"><div class="big" aria-hidden="true">✅</div><h2>${t("doneT")}</h2><p style="color:var(--muted)">${t("doneX",{n:o.no})}</p>
+      <section class="panel"><div class="lines">
+        <div><span>${t("storeLbl")}</span><b>${o.stores.map(s=>STORE[s].name).join(", ")}</b></div>
+        <div><span>${t("whenLbl")}</span><b>${esc(o.when)}</b></div>
+        <div><span>${t("whereLbl")}</span><b style="text-align:right">${esc(o.where)}</b></div>
+        <div><span>${t("payLbl")}</span><b>${esc(payName(o.pay))}</b></div>
+        <div class="grand"><span>${t("total")}</span><span class="num">${fmt(o.total)}</span></div>
+      </div></section></div>`;
+    barBtn=`<button class="btn pri" data-co="finish">${t("doneBack")}</button>`;
+  }
+  coEl.setAttribute("aria-label",t("coTitle"));
+  coEl.innerHTML=`<div class="co-top"><div class="wrap">
+      ${co.step>1&&co.step<4?`<button class="close" data-co="back" aria-label="${t("back")}" style="margin:0">←</button>`:""}
+      <div><h2>${t("coTitle")}</h2><div class="order-no">${t("orderNo",{n:co.no})}</div></div>
+      <button class="close" data-co="close" aria-label="✕">✕</button>
+    </div></div>
+    <div class="wrap body">
+      ${co.step<4?`<div class="steps">${steps.map((s,i)=>`<div class="${i<co.step?"on":""}">${s}</div>`).join("")}</div>`:""}
+      ${body}
+    </div>
+    <div class="co-bar"><div class="wrap">
+      ${co.step<4?`<div class="tot"><small>${t("toPay")}</small><b class="num">${fmt(total)}</b></div>`:`<span style="margin-right:auto"></span>`}
+      ${barBtn}
+    </div></div>`;
+}
+function phoneDigits(s){let d=s.replace(/\D/g,""); if(d.startsWith("8")) d="7"+d.slice(1); if(!d.startsWith("7")) d="7"+d; return d.slice(0,11)}
+function phoneFmt(d){const r=d.slice(1); let s="+7"; if(r.length) s+=" ("+r.slice(0,3); if(r.length>=3) s+=")"; if(r.length>3) s+=" "+r.slice(3,6); if(r.length>6) s+="-"+r.slice(6,8); if(r.length>8) s+="-"+r.slice(8,10); return s}
+function coNext(){
+  const co=state.co; co.err="";
+  if(co.step===2){
+    if(needAddress()&&(!co.street.trim()||!co.house.trim())) co.err=t("errAddr");
+    else if(phoneDigits(co.phone).length<11) co.err=t("errPhone");
+    else if(co.slot===null||slotDisabled(co.day,co.slot)) co.err=t("errTime");
+    if(co.err){renderCo();return;}
+  }
+  co.step++; renderCo(); coEl.scrollTo({top:0});
+}
+function coPay(){
+  const co=state.co;
+  if(!co.pay){co.err=t("errPay");renderCo();return;}
+  const groups=coGroups();
+  const order={no:co.no,ts:Date.now(),stores:groups.map(g=>g.sid),total:co.total,when:whenText(),where:needAddress()?addrText(co):t("pickupAt"),pay:co.pay};
+  state.orders.unshift(order);
+  if(needAddress()) save("gd_addr",{city:co.city,street:co.street,house:co.house,apt:co.apt,entrance:co.entrance,floor:co.floor,phone:co.phone});
+  groups.forEach(g=>g.ids.forEach(pid=>delete state.cart[pid]));
+  persist();
+  co.done=order; co.step=4; co.err=""; renderCo(); coEl.scrollTo({top:0});
+}
+
+/* ================= СОБЫТИЯ ================= */
+let toastT;
+function toast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove("show"),1700)}
+function addToCart(pid,sid){
+  const it=state.cart[pid];
+  if(it){ it.q++; if(sid) it.s=sid; }
+  else state.cart[pid]={q:1,s:sid||cheapestSid(PROD[pid])};
+  toast(t("tAdded",{n:pFull(PROD[pid])}));
+}
+function rerender(){persist(); render(); if(openId) openSheet(openId);}
+
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button");
+  if(!b){ if(e.target===scrim) closeSheet(); return; }
+  const d=b.dataset;
+
+  // оформление заказа
+  if(state.co && coEl.contains(b)){
+    const co=state.co;
+    if(d.co==="close"||d.co==="finish"){ if(d.co==="finish") state.view="catalog"; closeCo(); return; }
+    if(d.co==="back"){co.step--;co.err="";renderCo();return;}
+    if(d.co==="next"){coNext();return;}
+    if(d.co==="pay"){coPay();return;}
+    if(d.mode){co.mode=d.mode;co.err="";renderCo();return;}
+    if(d.day!==undefined){co.day=+d.day; if(co.slot!==null&&slotDisabled(co.day,co.slot)) co.slot=null; renderCo();return;}
+    if(d.slot){co.slot=+d.slot;co.err="";renderCo();return;}
+    if(d.pay){co.pay=d.pay;co.err="";renderCo();return;}
+    if(d.useaddr!==undefined){Object.assign(co,{city:co.saved.city,street:co.saved.street,house:co.saved.house,apt:co.saved.apt||"",entrance:co.saved.entrance||"",floor:co.saved.floor||"",phone:co.saved.phone||co.phone});renderCo();return;}
+    return;
+  }
+
+  if(d.lang){L=d.lang;save("gd_lang",L);applyStatic();render();if(openId)openSheet(openId);return;}
+  if(b.id==="themeBtn"){toggleTheme();return;}
+  if(d.close!==undefined){closeSheet();return;}
+  if(d.open){openSheet(d.open);return;}
+  if(d.view){state.view=d.view;state.storeId=null;window.scrollTo({top:0});}
+  else if(d.go){state.view=d.go;}
+  else if(d.storeopen){state.view="store";state.storeId=d.storeopen;state.storeQ="";window.scrollTo({top:0});}
+  else if(d.cat){state.cat=d.cat;state.brand=null; if(d.cat==="all") state.layout="list";}
+  else if(d.brand!==undefined){state.brand=d.brand||null;}
+  else if(d.layout){state.layout=d.layout;}
+  else if(d.add){addToCart(d.add);}
+  else if(d.addfrom){const [pid,sid]=d.addfrom.split("|"); addToCart(pid,sid);}
+  else if(d.fav){state.fav.has(d.fav)?state.fav.delete(d.fav):state.fav.add(d.fav); toast(state.fav.has(d.fav)?t("tFavAdd"):t("tFavRem"));}
+  else if(d.inc){state.cart[d.inc].q++;}
+  else if(d.dec){state.cart[d.dec].q--; if(state.cart[d.dec].q<=0) delete state.cart[d.dec];}
+  else if(d.clear!==undefined){state.cart={};toast(t("tCleared"));}
+  else if(d.moveall){Object.keys(state.cart).forEach(pid=>state.cart[pid].s=d.moveall);toast(t("tMoved",{s:STORE[d.moveall].name}));}
+  else if(d.optimize!==undefined){Object.keys(state.cart).forEach(pid=>state.cart[pid].s=cheapestSid(PROD[pid]));toast(t("tOpt"));}
+  else if(d.checkout){startCheckout(d.checkout);return;}
+  else if(d.store){
+    if(state.stores.has(d.store)){ if(state.stores.size>1) state.stores.delete(d.store); else {toast(t("tOneStore"));return;} }
+    else state.stores.add(d.store);
+    state.detailsOpen=true;
+  }
+  else if(d.storeAll!==undefined){STORES.forEach(s=>state.stores.add(s.id));state.detailsOpen=true;}
+  else if(d.reset!==undefined){state.cat="all";state.brand=null;state.q="";state.onlyPromo=false;state.layout="list";document.getElementById("q").value="";}
+  else if(b.id==="promoBtn"){state.onlyPromo=!state.onlyPromo;}
+  else return;
+  rerender();
+});
+
+document.addEventListener("change",e=>{
+  const el=e.target;
+  if(el.id==="sort"){state.sort=el.value;render();}
+  else if(el.dataset.setstore){state.cart[el.dataset.setstore].s=el.value;rerender();}
+  else if(state.co&&el.dataset.f==="city"){state.co.city=+el.value;}
+});
+document.addEventListener("input",e=>{
+  const el=e.target;
+  if(el.id==="q"){state.q=el.value; if(state.view!=="catalog"){state.view="catalog";} render(); return;}
+  if(el.id==="storeQ"){state.storeQ=el.value; renderStoreList(); return;}
+  if(state.co&&el.dataset.f){
+    if(el.dataset.f==="phone"){const f=phoneFmt(phoneDigits(el.value)); el.value=f; state.co.phone=f;}
+    else if(el.dataset.f!=="city") state.co[el.dataset.f]=el.value;
+  }
+});
+document.addEventListener("keydown",e=>{
+  if(e.key!=="Escape") return;
+  if(openId) closeSheet(); else if(state.co&&state.co.step<4) closeCo();
+});
+
+/* Тема */
+function currentDark(){const a=document.documentElement.dataset.theme;return a?a==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
+function applyThemeIcon(){document.getElementById("themeBtn").textContent=currentDark()?"☀️":"🌙"}
+function toggleTheme(){document.documentElement.dataset.theme=currentDark()?"light":"dark";save("gd_theme",document.documentElement.dataset.theme);applyThemeIcon()}
+const savedTheme=load("gd_theme",null); if(savedTheme) document.documentElement.dataset.theme=savedTheme;
+applyThemeIcon();
+
+applyStatic();
+render();
+</script>
+</body>
+</html>
